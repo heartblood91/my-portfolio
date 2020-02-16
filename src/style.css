@@ -1,0 +1,65 @@
+/* GENERAL */
+body {
+  font-family: "Lato", sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+ul,
+ol {
+  list-style: none;
+}
+section {
+  padding: 45px 0px 80px 0;
+}
+section .heading {
+  text-align: center;
+  padding-bottom: 40px;
+}
+section .heading h2 {
+  text-transform: uppercase;
+}
+.red-divider {
+  width: 100px;
+  height: 2px;
+  background: #346cb0;
+  margin: 0 auto 20px;
+}
+.white-divider {
+  width: 100px;
+  height: 2px;
+  background: #fff;
+  margin: 0 auto 20px;
+}
+
+/* MENU */
+.navbar {
+  background-color: #346cb0;
+  font-size: 12px;
+  border-bottom: 1px solid #fff;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.nav-pills .nav-link {
+  color: #fff !important;
+  text-align: center;
+}
+.nav-pills .nav-link.active,
+.nav-pills .nav-link:hover {
+  color: #346cb0 !important;
+  background-color: #fff !important;
+}
+.navbar-toggler {
+  color: #fff !important;
+  border-style: none;
+}
