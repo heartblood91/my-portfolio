@@ -1,5 +1,6 @@
 import React from "react";
 import pictureOfMe from "./content/images/me.webp";
+import Pdf from "./content/docs/CV.pdf";
 
 const About = props => {
   return (
@@ -16,7 +17,12 @@ const About = props => {
           Bienvenue sur mon portfolio
         </h1>
         <h3 className="text-grey">Développeur Junior FullStack</h3>
-        <a href="/public/docs/cv.pdf" className="button1">
+        <a
+          href={Pdf}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="button1"
+        >
           Télécharger CV
         </a>
       </div>
