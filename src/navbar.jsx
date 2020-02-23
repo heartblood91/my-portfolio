@@ -13,7 +13,7 @@ const Header = props => {
       </button>
 
       <div
-        className="collapse navbar-collapse justify-content-center"
+        className="collapse navbar-collapse justify-content-center shadow-black"
         id="myNavbar"
       >
         <ul className="nav nav-pills navbar-nav">
@@ -43,8 +43,8 @@ const Header = props => {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#recommandations">
-              Recommandations
+            <a className="nav-link" href="#contact">
+              Contact
             </a>
           </li>
         </ul>
