@@ -1,6 +1,6 @@
 /* GENERAL */
 :root {
-  --blue-light: #346cb0;
+  --blue-light: #3498db;
   --blue-dark: #002f68da;
   --grey: #bdc3c7;
 }
@@ -25,10 +25,30 @@ section {
   padding: 45px 0px 80px 0;
 }
 
+.blue-divider {
+  width: 100px;
+  height: 2px;
+  background: var(--blue-light);
+  margin: 0 auto 20px;
+}
+.white-divider {
+  width: 100px;
+  height: 2px;
+  background: #fff;
+  margin: 0 auto 20px;
+}
+
+.shadow-black {
+  text-shadow: 0.5px 0.5px 0.5px #000;
+}
+
+.shadow-blue {
+  text-shadow: 0.5px 0.5px 0.5px var(--blue-dark);
+}
+
 /* MENU */
 .navbar {
   background-color: var(--blue-light);
-  font-size: 12px;
   border-bottom: 1px solid var(--blue-dark);
   letter-spacing: 4px;
   text-transform: uppercase;
@@ -42,6 +62,7 @@ section {
 .nav-pills .nav-link:hover {
   color: var(--blue-light) !important;
   background-color: #fff !important;
+  text-shadow: 0.5px 0.5px 0.5px var(--blue-dark);
 }
 .navbar-toggler {
   color: #fff !important;
@@ -81,4 +102,26 @@ img {
 
 .text-grey {
   color: var(--grey) !important;
+}
+
+/* SKILLS */
+#skills {
+  background: #fff;
+}
+
+#skills .heading h2 {
+  color: var(--blue-light);
+}
+#skills .progress {
+  height: auto;
+  margin: 30px 20px;
+  background: #939393;
+}
+#skills .progress-bar {
+  background: var(--blue-light);
+}
+#skills .progress h5 {
+  margin-top: 5px;
+  text-transform: uppercase;
+  font-size: 1.1rem !important;
 }
