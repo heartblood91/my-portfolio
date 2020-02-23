@@ -13,10 +13,10 @@ const About = props => {
         />
       </div>
       <div className="pb-4 text-center">
-        <h1 className="text-white mt-4 text-uppercase">
+        <h1 className="text-white mt-4 text-uppercase shadow-black">
           Bienvenue sur mon portfolio
         </h1>
-        <h3 className="text-grey">Développeur Junior FullStack</h3>
+        <h3 className="text-grey shadow-black">Développeur Junior FullStack</h3>
         <a
           href={Pdf}
           target="_blank"
