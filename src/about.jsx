@@ -15,7 +15,7 @@ const About = props => {
         <h1 className="text-white mt-4 text-uppercase">
           Bienvenue sur mon portfolio
         </h1>
-        <h3 className="text-dark">Développeur Junior FullStack</h3>
+        <h3 className="text-grey">Développeur Junior FullStack</h3>
         <a href="/public/docs/cv.pdf" className="button1">
           Télécharger CV
         </a>

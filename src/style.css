@@ -2,6 +2,7 @@
 :root {
   --blue-light: #346cb0;
   --blue-dark: #002f68da;
+  --grey: #bdc3c7;
 }
 
 body {
@@ -76,4 +77,8 @@ img {
 .img-thumbnail {
   border-color: var(--blue-dark) !important;
   background-color: var(--blue-dark) !important;
+}
+
+.text-grey {
+  color: var(--grey) !important;
 }
