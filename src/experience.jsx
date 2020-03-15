@@ -37,8 +37,9 @@ const Experience = props => {
                     place, accompagnement et maintenance.
                   </p>
                   <p>
-                    Optimisation des tâches quotidiennes en ajoutant de
-                    l'automatisation (via les macros de Libre Office).
+                    Modernisation, évolution et optimisation des tâches
+                    quotidiennes en ajoutant de l'automatisation (via les macros
+                    de Libre Office).
                   </p>
 
                   <p>
