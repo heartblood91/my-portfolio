@@ -4,6 +4,7 @@
   --blue-dark: #002f68da;
   --grey: #bdc3c7;
   --orange-color: #ff7100;
+  --red-color: #871a1a;
 }
 
 body {
@@ -162,25 +163,25 @@ img {
 
 /* Ajoute 4 lignes horizontales en dessous du titre */
 .horizontaLine1 {
-  border-bottom: 2px solid var(--orange-color);
+  border-bottom: 2px solid var(--red-color);
   width: 300px;
   margin: 10px auto 0 auto;
 }
 
 .horizontaLine2 {
-  border-bottom: 2px solid var(--orange-color);
+  border-bottom: 2px solid var(--red-color);
   width: 200px;
   margin: 10px auto 0 auto;
 }
 
 .horizontaLine3 {
-  border-bottom: 2px solid var(--orange-color);
+  border-bottom: 2px solid var(--red-color);
   width: 100px;
   margin: 10px auto 0px auto;
 }
 
 .horizontaLine4 {
-  border-bottom: 2px solid var(--orange-color);
+  border-bottom: 2px solid var(--red-color);
   width: 10px;
   margin: 10px auto 20px auto;
 }
