@@ -2,7 +2,9 @@
 :root {
   --blue-light: #3498db;
   --blue-dark: #002f68da;
+  --bg-blue-ultra-light: #75b7e491;
   --grey: #bdc3c7;
+  --grey-dark: #3e3e3e;
   --orange-color: #ff7100;
   --red-color: #871a1a;
 }
@@ -76,7 +78,7 @@ section {
 .navbar {
   background-color: var(--blue-light);
   border-bottom: 1px solid var(--blue-dark);
-  letter-spacing: 4px;
+  letter-spacing: 2px;
   text-transform: uppercase;
   font-weight: bold;
 }
@@ -229,7 +231,7 @@ img {
   top: 16px;
   left: 50%;
   margin-left: -25px;
-  background-color: #ddd;
+  background-color: #fff;
   border-radius: 50%;
 }
 .timeline-panel-container {
@@ -279,5 +281,49 @@ img {
   padding-bottom: 5px;
 }
 .timeline-heading h4 {
+  color: var(--blue-dark);
+}
+
+/* EDUCATION */
+#education {
+  background: #fff;
+}
+#education .heading h2 {
   color: var(--blue-light);
+}
+.education-block {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 30px;
+  background: var(--bg-blue-ultra-light);
+  border-radius: 10px;
+  border: 2px solid var(--blue-light);
+  margin-bottom: 20px;
+}
+.education-block h5 {
+  color: var(--grey-dark);
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+.education-block .fas {
+  font-size: 35px;
+}
+.education-block h3 {
+  color: var(--blue-dark);
+}
+.education-block h4 {
+  margin-bottom: 20px;
+  color: var(--grey-dark);
+}
+.education-block p {
+  font-weight: bold;
+  color: var(--grey-dark);
+}
+.education-block .red-divider {
+  margin-bottom: 20px;
+  width: 100px;
+  height: 2px;
+  background: var(--red-color);
+  margin: 0 auto 20px;
 }

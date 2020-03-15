@@ -5,6 +5,7 @@ import Navbar from "./navbar";
 import About from "./about";
 import Skill from "./skills";
 import Experience from "./experience";
+import Education from "./education";
 
 const App = props => {
   return (
@@ -13,6 +14,7 @@ const App = props => {
       <About />
       <Skill />
       <Experience />
+      <Education />
     </Fragment>
   );
 };
