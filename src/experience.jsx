@@ -65,8 +65,8 @@ const Experience = props => {
                 </div>
                 <div className="timeline-body">
                   <p>Maintenance informatique et serveur</p>
+                  <p>Assistant RSSI</p>
                   <p>
-                    <p>Assistant RSSI</p>
                     <u>Equipe projet:</u> mise en place de nouveaux produits et
                     services
                   </p>

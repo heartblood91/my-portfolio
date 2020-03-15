@@ -14,7 +14,7 @@ const Skill = props => {
       <div className="container">
         <div className="row shadow-black">
           <div className="col-xl-4 col-md-6">
-            <div className="progress">
+            <div className="progress shadow-box-light">
               <div
                 className="progress-bar"
                 role="progressbar"
@@ -26,7 +26,7 @@ const Skill = props => {
                 <h5>HTML 40%</h5>
               </div>
             </div>
-            <div className="progress">
+            <div className="progress shadow-box-light">
               <div
                 className="progress-bar"
                 role="progressbar"
@@ -38,7 +38,7 @@ const Skill = props => {
                 <h5>Bootsrap 35%</h5>
               </div>
             </div>
-            <div className="progress">
+            <div className="progress shadow-box-light">
               <div
                 className="progress-bar"
                 role="progressbar"
@@ -50,7 +50,7 @@ const Skill = props => {
                 <h5>Wordpress 40%</h5>
               </div>
             </div>
-            <div className="progress">
+            <div className="progress shadow-box-light">
               <div
                 className="progress-bar"
                 role="progressbar"
@@ -62,7 +62,7 @@ const Skill = props => {
                 <h5>React-Native 20%</h5>
               </div>
             </div>
-            <div className="progress">
+            <div className="progress shadow-box-light">
               <div
                 className="progress-bar"
                 role="progressbar"
@@ -74,7 +74,7 @@ const Skill = props => {
                 <h5>Firebase 20%</h5>
               </div>
             </div>
-            <div className="progress">
+            <div className="progress shadow-box-light">
               <div
                 className="progress-bar"
                 role="progressbar"
@@ -86,7 +86,7 @@ const Skill = props => {
                 <h5>Python (PySide/Qt) 30%</h5>
               </div>
             </div>
-            <div className="progress">
+            <div className="progress shadow-box-light">
               <div
                 className="progress-bar"
                 role="progressbar"
@@ -100,7 +100,7 @@ const Skill = props => {
             </div>
           </div>
           <div className="col-xl-4 col-md-6">
-            <div className="progress">
+            <div className="progress shadow-box-light">
               <div
                 className="progress-bar"
                 role="progressbar"
@@ -112,7 +112,7 @@ const Skill = props => {
                 <h5>CSS 40%</h5>
               </div>
             </div>
-            <div className="progress">
+            <div className="progress shadow-box-light">
               <div
                 className="progress-bar"
                 role="progressbar"
@@ -124,7 +124,7 @@ const Skill = props => {
                 <h5>PHP 20%</h5>
               </div>
             </div>
-            <div className="progress">
+            <div className="progress shadow-box-light">
               <div
                 className="progress-bar"
                 role="progressbar"
@@ -136,7 +136,7 @@ const Skill = props => {
                 <h5>Javascript 30%</h5>
               </div>
             </div>
-            <div className="progress">
+            <div className="progress shadow-box-light">
               <div
                 className="progress-bar"
                 role="progressbar"
@@ -148,7 +148,7 @@ const Skill = props => {
                 <h5>TypeScript 20%</h5>
               </div>
             </div>
-            <div className="progress">
+            <div className="progress shadow-box-light">
               <div
                 className="progress-bar"
                 role="progressbar"
@@ -160,7 +160,7 @@ const Skill = props => {
                 <h5>NoSQL - MongoDB 30%</h5>
               </div>
             </div>
-            <div className="progress">
+            <div className="progress shadow-box-light">
               <div
                 className="progress-bar"
                 role="progressbar"
@@ -172,7 +172,7 @@ const Skill = props => {
                 <h5>Python-DataScience 30%</h5>
               </div>
             </div>
-            <div className="progress">
+            <div className="progress shadow-box-light">
               <div
                 className="progress-bar"
                 role="progressbar"
@@ -186,7 +186,7 @@ const Skill = props => {
             </div>
           </div>
           <div className="col-xl-4 col-md-6">
-            <div className="progress">
+            <div className="progress shadow-box-light">
               <div
                 className="progress-bar"
                 role="progressbar"
@@ -198,7 +198,7 @@ const Skill = props => {
                 <h5>Jquery 20%</h5>
               </div>
             </div>
-            <div className="progress">
+            <div className="progress shadow-box-light">
               <div
                 className="progress-bar"
                 role="progressbar"
@@ -210,7 +210,7 @@ const Skill = props => {
                 <h5>MySQL 20%</h5>
               </div>
             </div>
-            <div className="progress">
+            <div className="progress shadow-box-light">
               <div
                 className="progress-bar"
                 role="progressbar"
@@ -222,7 +222,7 @@ const Skill = props => {
                 <h5>React (Redux/Router) 40%</h5>
               </div>
             </div>
-            <div className="progress">
+            <div className="progress shadow-box-light">
               <div
                 className="progress-bar"
                 role="progressbar"
@@ -234,7 +234,7 @@ const Skill = props => {
                 <h5>Express 35%</h5>
               </div>
             </div>
-            <div className="progress">
+            <div className="progress shadow-box-light">
               <div
                 className="progress-bar"
                 role="progressbar"
@@ -246,7 +246,7 @@ const Skill = props => {
                 <h5>GIT 40%</h5>
               </div>
             </div>
-            <div className="progress ">
+            <div className="progress shadow-box-light">
               <div
                 className="progress-bar"
                 role="progressbar"

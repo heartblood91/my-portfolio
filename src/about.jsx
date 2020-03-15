@@ -9,7 +9,7 @@ const About = props => {
         <img
           src={pictureOfMe}
           alt="C'est moi Cédric"
-          className="img-fluid img-thumbnail"
+          className="img-fluid img-thumbnail shadow-box-center"
         />
       </div>
       <div className="pb-4 text-center">
@@ -26,7 +26,7 @@ const About = props => {
           href={Pdf}
           target="_blank"
           rel="noopener noreferrer"
-          className="button1"
+          className="button1 shadow-box-center"
         >
           Télécharger CV
         </a>

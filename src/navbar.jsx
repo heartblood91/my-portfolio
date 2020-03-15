@@ -2,7 +2,7 @@ import React from "react";
 
 const Header = props => {
   return (
-    <nav className="navbar navbar-expand-md navbar-dark sticky-top">
+    <nav className="navbar navbar-expand-md navbar-dark sticky-top shadow-box-navbar-blue">
       <button
         className="navbar-toggler"
         type="button"
