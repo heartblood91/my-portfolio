@@ -40,6 +40,7 @@ const Education = props => {
                   <h4>Formation Online Sécurité Informatique</h4>
                   <div className="red-divider"></div>
                   <p>Protection vie privée (5h)</p>
+                  <p>Comprendre les Arnarques sur internet (1h40)</p>
                   <p>Antivirus (1h)</p>
                 </div>
               </div>
@@ -103,6 +104,13 @@ const Education = props => {
                     <u className="text-uppercase">Initiation DevOps</u> <br />
                     Sécurité informatique (5h) <br />
                     Docker (5h)
+                  </p>
+                  <p>
+                    <u className="text-uppercase">
+                      Initiation Administration Réseaux
+                    </u>{" "}
+                    <br />
+                    Programme CCNA 200-301 (<i>en cours 22h</i>) <br />
                   </p>
                   <p>
                     <u className="text-uppercase">Linux (7h)</u>
