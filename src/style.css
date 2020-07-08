@@ -3,8 +3,9 @@
   --blue-light: #3498db;
   --blue-dark: #002f68da;
   --bg-blue-ultra-light: #75b7e491;
+  --bg-input-forms: #e9f4fc;
   --grey: #bdc3c7;
-  --grey-dark: #3e3e3e;
+  --grey-dark: hsl(0, 0%, 24%);
   --orange-color: #ff7100;
   --red-color: #871a1a;
 }
@@ -121,6 +122,7 @@ section {
   padding: 18px 50px;
   border-radius: 3px;
   transition: all 0.3s ease-in 0s;
+  background-color: var(--blue-light);
 }
 .button1:hover {
   background: white;
@@ -352,3 +354,46 @@ img {
 #portfolio .col-md-4 {
   margin-bottom: 20px;
 }
+
+/* CONTACT */
+#contact {
+  background: #fff;
+}
+#contact .heading h2 {
+  color: var(--blue-light);
+}
+#contact-form {
+  font-size: 20px;
+}
+.inputFormBlue {
+  background: var(--bg-input-forms);
+}
+.blue {
+  color: var(--blue-light);
+}
+.form-control {
+  height: 50px;
+  font-size: 18px;
+  border-width: 1.5px;
+}
+#contact-form input[type="submit"]:focus {
+  outline: none;
+}
+
+#contact-form input[type="submit"] {
+  margin: 40px auto 0px;
+  display: block;
+}
+
+/* .comments {
+  font-style: italic;
+  font-size: 18px;
+  color: #d82c2e;
+  height: 25px;
+}
+#contact-form .thank-you {
+  text-align: center;
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 22px;
+} */

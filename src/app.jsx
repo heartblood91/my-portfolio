@@ -7,8 +7,9 @@ import Skill from "./skills";
 import Experience from "./experience";
 import Education from "./education";
 import Portfolio from "./portfolio";
+import Contact from "./contact";
 
-const App = props => {
+const App = (props) => {
   return (
     <Fragment>
       <Navbar />
@@ -17,6 +18,7 @@ const App = props => {
       <Experience />
       <Education />
       <Portfolio />
+      <Contact />
     </Fragment>
   );
 };
