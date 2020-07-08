@@ -327,3 +327,28 @@ img {
   background: var(--red-color);
   margin: 0 auto 20px;
 }
+
+/* PORTFOLIO */
+#portfolio {
+  background: var(--blue-light);
+}
+#portfolio .heading h2,
+#portfolio h4,
+#portfolio h3 {
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+}
+#portfolio img {
+  width: 100%;
+  height: 100%;
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+}
+#portfolio img:hover {
+  filter: none;
+  -webkit-filter: none;
+}
+#portfolio .col-md-4 {
+  margin-bottom: 20px;
+}

@@ -6,6 +6,7 @@ import About from "./about";
 import Skill from "./skills";
 import Experience from "./experience";
 import Education from "./education";
+import Portfolio from "./portfolio";
 
 const App = props => {
   return (
@@ -15,6 +16,7 @@ const App = props => {
       <Skill />
       <Experience />
       <Education />
+      <Portfolio />
     </Fragment>
   );
 };
