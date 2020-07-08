@@ -397,3 +397,27 @@ img {
   font-weight: bold;
   font-size: 22px;
 } */
+
+/* FOOTER */
+footer {
+  background: #333;
+  padding: 20px 0 40px;
+}
+footer .fas {
+  font-size: 25px;
+  margin: 20px;
+  color: var(--blue-light);
+  height: 30px;
+}
+footer .fas:hover {
+  font-size: 30px;
+}
+footer h5 {
+  color: #fff;
+  font-weight: normal;
+}
+
+footer a,
+footer a:hover {
+  color: var(--blue-light);
+}
