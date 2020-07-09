@@ -1,6 +1,6 @@
 import React from "react";
 
-const Experience = props => {
+const Experience = (props) => {
   return (
     <section id="experience">
       <div className="white-divider"></div>
@@ -28,8 +28,8 @@ const Experience = props => {
                 </div>
                 <div className="timeline-body">
                   <p>
-                    Développement d'une application Web Responsive Full Stack
-                    (from scratch) sous React-Redux et Express.js.
+                    Développement d’une application Web Responsive Full Stack
+                    (React + Redux & Express.Js + Mongoose).
                   </p>
 
                   <p>
@@ -47,6 +47,7 @@ const Experience = props => {
                     interface, d'archiver et d'extraire rapidement divers
                     fichiers (PDF, ODT, MAIL ...).
                   </p>
+                  <p>Moderniser et faire évoluer les outils présents.</p>
                 </div>
               </div>
             </div>
@@ -71,27 +72,6 @@ const Experience = props => {
                     <u>Equipe projet:</u> mise en place de nouveaux produits et
                     services
                   </p>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div className="timeline-badge">
-              <span className="fas fa-briefcase"></span>
-            </div>
-            <div className="timeline-panel-container">
-              <div className="timeline-panel">
-                <div className="timeline-heading text-center">
-                  <h3>Ministère de l'intérieur</h3>
-                  <h4>Autres services</h4>
-                  <p className="text-muted">
-                    <small className="fas fa-clock"></small> 2013-2016
-                  </p>
-                </div>
-                <div className="timeline-body">
-                  <p>Garde statique + Opérateur CIC</p>
-                  <p>Formation Gardien de la Paix (1an)</p>
-                  <p>Adjoint de Sécurité au Commissariat de Paris 12</p>
                 </div>
               </div>
             </div>

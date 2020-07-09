@@ -1,6 +1,6 @@
 import React from "react";
 
-const Education = props => {
+const Education = (props) => {
   return (
     <section id="education">
       <div className="container">
@@ -39,9 +39,9 @@ const Education = props => {
                   <h3>Cyberini</h3>
                   <h4>Formation Online Sécurité Informatique</h4>
                   <div className="red-divider"></div>
-                  <p>Protection vie privée (5h)</p>
-                  <p>Comprendre les Arnarques sur internet (1h40)</p>
-                  <p>Antivirus (1h)</p>
+                  <p>Protection vie privée </p>
+                  <p>Comprendre les Arnarques sur internet</p>
+                  <p>Antivirus</p>
                 </div>
               </div>
               <div className="col-lg-6 col-md-12">
@@ -66,54 +66,42 @@ const Education = props => {
                   <h4>Formation Online</h4>
                   <div className="red-divider"></div>
                   <p>
-                    <u className="text-uppercase">Bases Web (38h)</u>
+                    <u className="text-uppercase">React & React-Native</u>{" "}
                     <br />
-                    Html / CSS / Javascript <br />
-                    JQuery / Bootstrap / PHP <br />
-                    MySQL / Wordpress
+                    React / Redux / React-Router <br />
+                    React Native / Expo / React-Navigation
                   </p>
                   <p>
-                    <u className="text-uppercase">Javascript (27,5 h)</u>
+                    <u className="text-uppercase">Frontend</u>
                     <br />
-                    Bases / ES6 / ES7
+                    Html / PHP <br />
+                    Javascript / ES6 / ES7 <br />
+                    TypeScript <br />
+                    CSS / JQuery / Bootstrap <br />
+                    Wordpress
                   </p>
-                  <p>
-                    <u className="text-uppercase">React</u> <br />
-                    React / Redux / React-Router (21h) <br />
-                    React Native (3,5h)
-                  </p>
-                  <p>
-                    <u className="text-uppercase">TypeScript (3h)</u>
-                  </p>
+
                   <p>
                     <u className="text-uppercase">Backend</u> <br />
-                    Express.js – MongoDB (3,5h) <br />
-                    Firebase (3h)
+                    Express.js <br />
+                    Firebase <br />
+                    PHP
                   </p>
                   <p>
-                    <u className="text-uppercase">Git (3,5h)</u>
+                    <u className="text-uppercase">Base de donnée</u>
+                    <br />
+                    MySQL <br />
+                    MongoDB / Mongoose
                   </p>
                   <p>
-                    <u className="text-uppercase">Python</u> <br />
-                    PySide / PySide2 / QT (21,3h) <br />
-                    Scraping (4,5h) <br />
-                    DataScience (16h)
+                    <u className="text-uppercase">Git</u>
                   </p>
 
                   <p>
                     <u className="text-uppercase">Initiation DevOps</u> <br />
-                    Sécurité informatique (5h) <br />
-                    Docker (5h)
-                  </p>
-                  <p>
-                    <u className="text-uppercase">
-                      Initiation Administration Réseaux
-                    </u>{" "}
-                    <br />
-                    Programme CCNA 200-301 (<i>en cours 22h</i>) <br />
-                  </p>
-                  <p>
-                    <u className="text-uppercase">Linux (7h)</u>
+                    DevOps (fondements et principes clés) <br />
+                    Sécurité informatique <br />
+                    Docker
                   </p>
 
                   <p>
@@ -122,7 +110,7 @@ const Education = props => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Voir les formations suivies
+                      Voir toutes les formations suivies
                     </a>
                   </p>
                 </div>

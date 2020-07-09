@@ -1,7 +1,8 @@
 import React from "react";
+import ReactTooltip from "react-tooltip";
 
-const Skill = props => {
-  const widthOfBar = valWidth => {
+const Skill = (props) => {
+  const widthOfBar = (valWidth) => {
     return { width: valWidth };
   };
 
@@ -18,60 +19,19 @@ const Skill = props => {
               <div
                 className="progress-bar"
                 role="progressbar"
-                aria-valuenow="40"
+                aria-valuenow="25"
                 aria-valuemin="0"
                 aria-valuemax="100"
-                style={widthOfBar("40%")}
+                data-tip="tooltip"
+                data-place="top"
+                data-for="react"
+                data-background-color="#002f68da"
+                style={widthOfBar("25%")}
               >
-                <h5>HTML 40%</h5>
-              </div>
-            </div>
-            <div className="progress shadow-box-light">
-              <div
-                className="progress-bar"
-                role="progressbar"
-                aria-valuenow="35"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style={widthOfBar("35%")}
-              >
-                <h5>Bootsrap 35%</h5>
-              </div>
-            </div>
-            <div className="progress shadow-box-light">
-              <div
-                className="progress-bar"
-                role="progressbar"
-                aria-valuenow="40"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style={widthOfBar("40%")}
-              >
-                <h5>Wordpress 40%</h5>
-              </div>
-            </div>
-            <div className="progress shadow-box-light">
-              <div
-                className="progress-bar"
-                role="progressbar"
-                aria-valuenow="20"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style={widthOfBar("20%")}
-              >
-                <h5>React-Native 20%</h5>
-              </div>
-            </div>
-            <div className="progress shadow-box-light">
-              <div
-                className="progress-bar"
-                role="progressbar"
-                aria-valuenow="20"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style={widthOfBar("20%")}
-              >
-                <h5>Firebase 20%</h5>
+                <h5>React & Redux 25%</h5>
+                <ReactTooltip id="react">
+                  React / Redux / React-Router
+                </ReactTooltip>
               </div>
             </div>
             <div className="progress shadow-box-light">
@@ -81,107 +41,35 @@ const Skill = props => {
                 aria-valuenow="30"
                 aria-valuemin="0"
                 aria-valuemax="100"
+                data-tip="tooltip"
+                data-place="top"
+                data-for="react-native"
+                data-background-color="#002f68da"
                 style={widthOfBar("30%")}
               >
-                <h5>Python (PySide/Qt) 30%</h5>
+                <h5>React-Native & Expo 30%</h5>
+                <ReactTooltip id="react-native">
+                  React-Native / Expo / Redux / React-Navigation
+                </ReactTooltip>
               </div>
             </div>
             <div className="progress shadow-box-light">
               <div
                 className="progress-bar"
                 role="progressbar"
-                aria-valuenow="10"
+                aria-valuenow="25"
                 aria-valuemin="0"
                 aria-valuemax="100"
-                style={widthOfBar("20%")}
+                data-tip="tooltip"
+                data-place="top"
+                data-for="frontend"
+                data-background-color="#002f68da"
+                style={widthOfBar("25%")}
               >
-                <h5>Cybersécurité (Initiation) 10%</h5>
-              </div>
-            </div>
-          </div>
-          <div className="col-xl-4 col-md-6">
-            <div className="progress shadow-box-light">
-              <div
-                className="progress-bar"
-                role="progressbar"
-                aria-valuenow="40"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style={widthOfBar("40%")}
-              >
-                <h5>CSS 40%</h5>
-              </div>
-            </div>
-            <div className="progress shadow-box-light">
-              <div
-                className="progress-bar"
-                role="progressbar"
-                aria-valuenow="20"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style={widthOfBar("20%")}
-              >
-                <h5>PHP 20%</h5>
-              </div>
-            </div>
-            <div className="progress shadow-box-light">
-              <div
-                className="progress-bar"
-                role="progressbar"
-                aria-valuenow="30"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style={widthOfBar("30%")}
-              >
-                <h5>Javascript 30%</h5>
-              </div>
-            </div>
-            <div className="progress shadow-box-light">
-              <div
-                className="progress-bar"
-                role="progressbar"
-                aria-valuenow="20"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style={widthOfBar("20%")}
-              >
-                <h5>TypeScript 20%</h5>
-              </div>
-            </div>
-            <div className="progress shadow-box-light">
-              <div
-                className="progress-bar"
-                role="progressbar"
-                aria-valuenow="30"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style={widthOfBar("30%")}
-              >
-                <h5>NoSQL - MongoDB 30%</h5>
-              </div>
-            </div>
-            <div className="progress shadow-box-light">
-              <div
-                className="progress-bar"
-                role="progressbar"
-                aria-valuenow="30"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style={widthOfBar("30%")}
-              >
-                <h5>Python-DataScience 30%</h5>
-              </div>
-            </div>
-            <div className="progress shadow-box-light">
-              <div
-                className="progress-bar"
-                role="progressbar"
-                aria-valuenow="40"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style={widthOfBar("40%")}
-              >
-                <h5>Outils Serveur Windows 40%</h5>
+                <h5>Frontend 25%</h5>
+                <ReactTooltip id="frontend">
+                  HTML CSS Bootstrap Javascript PHP Jquery TypeScript
+                </ReactTooltip>
               </div>
             </div>
           </div>
@@ -193,9 +81,16 @@ const Skill = props => {
                 aria-valuenow="20"
                 aria-valuemin="0"
                 aria-valuemax="100"
+                data-tip="tooltip"
+                data-place="top"
+                data-for="backend"
+                data-background-color="#002f68da"
                 style={widthOfBar("20%")}
               >
-                <h5>Jquery 20%</h5>
+                <h5>Backend 20%</h5>
+                <ReactTooltip id="backend">
+                  Express.Js / Mongoose / Firebase
+                </ReactTooltip>
               </div>
             </div>
             <div className="progress shadow-box-light">
@@ -205,47 +100,19 @@ const Skill = props => {
                 aria-valuenow="20"
                 aria-valuemin="0"
                 aria-valuemax="100"
+                data-tip="tooltip"
+                data-place="top"
+                data-for="test"
+                data-background-color="#002f68da"
                 style={widthOfBar("20%")}
               >
-                <h5>MySQL 20%</h5>
+                <h5>Mocha 20%</h5>
+                <ReactTooltip id="test">
+                  Test unitaire utilisé sur une API
+                </ReactTooltip>
               </div>
             </div>
-            <div className="progress shadow-box-light">
-              <div
-                className="progress-bar"
-                role="progressbar"
-                aria-valuenow="40"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style={widthOfBar("40%")}
-              >
-                <h5>React (Redux/Router) 40%</h5>
-              </div>
-            </div>
-            <div className="progress shadow-box-light">
-              <div
-                className="progress-bar"
-                role="progressbar"
-                aria-valuenow="35"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style={widthOfBar("35%")}
-              >
-                <h5>Express 35%</h5>
-              </div>
-            </div>
-            <div className="progress shadow-box-light">
-              <div
-                className="progress-bar"
-                role="progressbar"
-                aria-valuenow="40"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style={widthOfBar("40%")}
-              >
-                <h5>GIT 40%</h5>
-              </div>
-            </div>
+
             <div className="progress shadow-box-light">
               <div
                 className="progress-bar"
@@ -253,9 +120,53 @@ const Skill = props => {
                 aria-valuenow="50"
                 aria-valuemin="0"
                 aria-valuemax="100"
+                data-tip="tooltip"
+                data-place="top"
+                data-for="cms"
+                data-background-color="#002f68da"
                 style={widthOfBar("50%")}
               >
-                <h5>Python-Scraping 50%</h5>
+                <h5>Wordpress 50%</h5>
+                <ReactTooltip id="cms">CMS</ReactTooltip>
+              </div>
+            </div>
+          </div>
+          <div className="col-xl-4 col-md-6">
+            <div className="progress shadow-box-light">
+              <div
+                className="progress-bar"
+                role="progressbar"
+                aria-valuenow="40"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                style={widthOfBar("40%")}
+              >
+                <h5>Git 40%</h5>
+              </div>
+            </div>
+            <div className="progress shadow-box-light">
+              <div
+                className="progress-bar"
+                role="progressbar"
+                aria-valuenow="20"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                style={widthOfBar("20%")}
+              >
+                <h5>Initiation DevOps 20%</h5>
+              </div>
+            </div>
+            <div className="progress shadow-box-light">
+              <div
+                className="progress-bar"
+                role="progressbar"
+                aria-valuenow="30"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                data-background-color="#002f68da"
+                style={widthOfBar("40%")}
+              >
+                <h6>Sensibilisation Cybersécurité 30%</h6>
               </div>
             </div>
           </div>
