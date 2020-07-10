@@ -364,6 +364,22 @@ img {
   margin-bottom: 20px;
 }
 
+#portfolio .img-fluid {
+  margin: 50px 0 0 0;
+  transition: all 1s;
+}
+
+#portfolio .img-fluid:hover {
+  transform: scale(1.1);
+}
+
+/* Evite que l'image soit trop importante */
+@media (min-width: 1600px) {
+  #portfolio .img-fluid {
+    max-width: 80%;
+  }
+}
+
 /* CONTACT */
 #contact {
   background: #fff;
@@ -417,9 +433,10 @@ footer .fas {
   margin: 20px;
   color: var(--blue-light);
   height: 30px;
+  transition: all 0.5s;
 }
 footer .fas:hover {
-  font-size: 30px;
+  transform: scale(2);
 }
 footer h5 {
   color: #fff;

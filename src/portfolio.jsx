@@ -15,8 +15,9 @@ import pictureOfWebRecettes from "./content/images/Recettes.webp";
 import pictureOfWebSerpent from "./content/images/Serpent.webp";
 import pictureOfWebTravelAgency from "./content/images/TravelAgency.webp";
 import pictureOfWebWorldBucketList from "./content/images/WorldBucketList.webp";
-import GeoConfinement from "./content/images/GeoConfinement.webp";
-import CoraDriveAssistant from "./content/images/CoraDriveAssistant.webp";
+import pictureOfGeoConfinement from "./content/images/GeoConfinement.webp";
+import pictureOfCoraDriveAssistant from "./content/images/CoraDriveAssistant.webp";
+import pictureOfGithub from "./content/images/github.webp";
 
 const Portfolio = (props) => {
   return (
@@ -35,7 +36,7 @@ const Portfolio = (props) => {
             link={
               "https://play.google.com/store/apps/details?id=ovh.hidemyhome.geoconfinement"
             }
-            pictures={GeoConfinement}
+            pictures={pictureOfGeoConfinement}
             altPictures={"Play Store: Geoconfinement"}
           />
         </div>
@@ -44,7 +45,7 @@ const Portfolio = (props) => {
         <div className="row">
           <PortFolioThumbs
             link={"https://github.com/heartblood91/CoraDriveAssistant"}
-            pictures={CoraDriveAssistant}
+            pictures={pictureOfCoraDriveAssistant}
             altPictures={"Github: CoraDriveAssistant"}
           />
         </div>
@@ -125,6 +126,19 @@ const Portfolio = (props) => {
             altPictures={"Site Web: BucketList"}
           />
         </div>
+      </div>
+
+      <div
+        id="divForGithub"
+        className="text-center col-lg-3 col-md-4 col-sm-6 mx-auto"
+      >
+        <a
+          href="https://github.com/heartblood91"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img className="img-fluid" src={pictureOfGithub} alt="Vers Github" />
+        </a>
       </div>
     </section>
   );
