@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import axios from "axios";
+const BASE_URL = "http://localhost:3000";
 
 class Contact extends Component {
   state = {
@@ -12,18 +14,16 @@ class Contact extends Component {
     error: {
       iError: -1,
     },
-    intervalBeforeRequest: 1000,
-    lockRequest: false,
   };
 
   formValidate = (event) => {
     event.preventDefault();
 
-    // Je créé un message
-    let message = "";
-
     // Je fais une copie d'erreur
     const error = Object.assign({}, this.state.error);
+
+    //Je reset le compteur d'erreur:
+    error.iError = 0;
 
     // Je check chaque informations et je mets à jour la variable erreur
     Object.keys(this.state.form).map((key) => {
@@ -31,20 +31,33 @@ class Contact extends Component {
       error[key] =
         this.state.form[key] === "" && key !== "phone" ? true : false;
 
-      // Si erreur, alors je mets à jour le message + je compte le nombre d'erreur
-      error[key] &&
-        (message =
-          "Corrigez l" +
-          (error.iError >= 2 ? "es erreurs" : "'erreur") +
-          " avant de rappuyer sur le bouton") &&
-        (error.iError += 1);
+      // Je compte le nombre d'erreur
+      error[key] && (error.iError += 1);
 
       return error.iError;
     });
 
-    error.iError === 0
-      ? console.log("Envoie du formulaire par mail")
-      : console.log(error.iError + " erreur(s) " + message);
+    // Si aucune erreur alors, je fais une requête via axios à l'API pour demander l'envoie d'un mail.
+    if (error.iError === 0) {
+      axios
+        .post(`${BASE_URL}/sendAMail`, {
+          // je transmet les informations dans le corps de la requête
+
+          firstname: this.state.form.firstname,
+          name: this.state.form.name,
+          mail: this.state.form.email,
+          phone: this.state.form.phone,
+          message: this.state.form.message,
+        })
+        // si j'ai un retour, sans erreur, je préviens l'utilisateur que son message a été envoyé
+        .then((response) => {
+          console.log("message envoyé avec la réponse: ", response.data);
+        })
+        // En cas d'erreur, je n'autorise pas la connexion
+        .catch((error) => {
+          console.log("Message non envoyé avec l'erreur: ", error);
+        });
+    }
 
     // J'actualise le state
     this.setState({ error });
@@ -54,23 +67,7 @@ class Contact extends Component {
     // Recupère la valeur et le champs correspondant pour les stocker dans le state
     const { value, name } = event.target;
 
-    // S'il s'agit du message, je mets un locker d'une seconde pour éviter trop de setState
-    if (!this.state.lockRequest && name === "message") {
-      // Je lock
-      this.setState({ lockRequest: true });
-
-      //J'attends 1seconde avant de sauvegarder
-      setTimeout(() => {
-        this.setState({
-          form: { ...this.state.form, [name]: value },
-          lockRequest: false,
-        });
-      }, this.state.intervalBeforeRequest);
-
-      //Si ce n'est pas dans 'area' alors je peux faire un set tout de suite
-    } else if (name !== "message") {
-      this.setState({ form: { ...this.state.form, [name]: value } });
-    }
+    this.setState({ form: { ...this.state.form, [name]: value } });
   };
 
   feedbackMessage = () => {
