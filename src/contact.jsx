@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import axios from "axios";
 const BASE_URL = "http://localhost:3000";
 
@@ -14,6 +14,7 @@ class Contact extends Component {
     error: {
       iError: -1,
     },
+    backendMessage: "",
   };
 
   formValidate = (event) => {
@@ -39,6 +40,9 @@ class Contact extends Component {
 
     // Si aucune erreur alors, je fais une requête via axios à l'API pour demander l'envoie d'un mail.
     if (error.iError === 0) {
+      // Reset du message backend
+      this.feedbackBackend(null);
+
       axios
         .post(`${BASE_URL}/sendAMail`, {
           // je transmet les informations dans le corps de la requête
@@ -50,12 +54,13 @@ class Contact extends Component {
           message: this.state.form.message,
         })
         // si j'ai un retour, sans erreur, je préviens l'utilisateur que son message a été envoyé
-        .then((response) => {
-          console.log("message envoyé avec la réponse: ", response.data);
+        .then(() => {
+          // Reset du message backend
+          this.feedbackBackend(true);
         })
         // En cas d'erreur, je n'autorise pas la connexion
-        .catch((error) => {
-          console.log("Message non envoyé avec l'erreur: ", error);
+        .catch(() => {
+          this.feedbackBackend(false);
         });
     }
 
@@ -92,6 +97,111 @@ class Contact extends Component {
         </p>
       );
     }
+  };
+
+  feedbackBackend = (isSuccess) => {
+    // Fixe les variables :
+    let backendMessage;
+    let valueProgressBar = 10;
+
+    // Etape 0: Création du message type
+    // Fonction permettant de créer le message + la barre de progression
+    const creatorBackendMessage = (
+      whichType,
+      messageProgressBar,
+      valueProgressBar
+    ) => {
+      return (
+        <Fragment>
+          <p
+            className={
+              "text-center " +
+              // Permet d'ajouter une couleur au texte danger vs success vs rien
+              (whichType === "normal" ? "" : "text-" + whichType)
+            }
+          >
+            {messageProgressBar}
+          </p>
+          <div
+            className="progress"
+            style={{ margin: "auto", width: "50%", height: "10px" }}
+          >
+            <div
+              className={
+                "progress-bar progress-bar-striped " +
+                // Permet d'ajouter un background à la barre de progression bleu VS vert VS rouge
+                (whichType === "normal"
+                  ? "progress-bar-animated"
+                  : "bg-" + whichType)
+              }
+              role="progressbar"
+              style={{ width: valueProgressBar + "%" }}
+              aria-valuenow={valueProgressBar}
+              aria-valuemin="0"
+              aria-valuemax="100"
+            />
+          </div>
+        </Fragment>
+      );
+    };
+
+    // Etape 1: Affiche la barre de progression + MAJ par interval régulier
+    // Fonction permettant d'animer la barre de progression
+    const startProgress = () => {
+      // Répète ce code à un interval régulier
+      if (this.state.inProgress === true) {
+        // Fais progresser la barre jusqu'à 70, step de 10
+        valueProgressBar = valueProgressBar < 80 ? valueProgressBar + 10 : 10;
+
+        // Actualise le paragraphe dans le state
+        this.setState({
+          backendMessage: creatorBackendMessage(
+            "normal",
+            "En cours de transmission",
+            valueProgressBar
+          ),
+        });
+
+        // Relance la fonction dans un interval de temps
+        setTimeout(startProgress, 1500);
+      }
+    };
+
+    // Etape 2: MAJ du message et de la barre en fonction de la requête
+    // En cas d'échec pour la transmission du mail
+    if (isSuccess === false) {
+      // J'arrête la progression
+      this.setState({ inProgress: false }, () => {
+        //stopProgress();
+
+        // Je transmet le nouveau message (avertissement de l'échec)
+        backendMessage = creatorBackendMessage(
+          "danger",
+          "Oupss... Il y a un problème... Le message n'est pas parvenu...",
+          "100"
+        );
+      });
+
+      // En cas de succès
+    } else if (isSuccess) {
+      // J'arrête la progression
+      this.setState({ inProgress: false }, () => {
+        // stopProgress();
+
+        // Je transmet le message de succès
+        backendMessage = creatorBackendMessage(
+          "success",
+          "Le message a bien été transmis! ;-)",
+          "100"
+        );
+      });
+
+      // Si ni l'un ni l'autre, alors je mets en route la progression
+    } else {
+      this.setState({ inProgress: true }, () => startProgress());
+    }
+
+    this.setState({ backendMessage });
   };
 
   render() {
@@ -213,6 +323,7 @@ class Contact extends Component {
                       * Ces informations sont requises.
                     </p>
                     {this.feedbackMessage()}
+                    {this.state.backendMessage}
                   </div>
                   <div className="col-md-12">
                     <input
