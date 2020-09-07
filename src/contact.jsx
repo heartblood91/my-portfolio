@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import axios from "axios";
+import FormContact from "./components/formContact";
 const BASE_URL = "http://localhost:3000";
 
 // Une partie du state qui fait l'objet d'un reset régulier
@@ -263,119 +264,61 @@ class Contact extends Component {
             <div className="col-lg-10 col-lg-offset-1 mx-auto">
               <form id="contact-form" onSubmit={this.formValidate}>
                 <div className="row">
-                  <div className="col-md-6">
-                    <label htmlFor="firstname">
-                      Prénom <span className="blue">*</span>
-                    </label>
-                    <input
-                      id="firstname"
-                      type="text"
-                      name="firstname"
-                      className={
-                        "form-control inputFormBlue " +
-                        (this.state.error.firstname === undefined ||
-                        !this.state.lockForm.firstname
-                          ? ""
-                          : this.state.error.firstname
-                          ? "is-invalid"
-                          : "is-valid")
-                      }
-                      placeholder="Votre prénom"
-                      onChange={this.handleChange}
-                    />
-                    <div className="invalid-feedback">
-                      Quel est votre prénom?
-                    </div>
-                  </div>
-                  <div className="col-md-6">
-                    <label htmlFor="name">
-                      Nom <span className="blue">*</span>
-                    </label>
-                    <input
-                      id="name"
-                      type="text"
-                      name="name"
-                      className={
-                        "form-control inputFormBlue " +
-                        (this.state.error.name === undefined ||
-                        !this.state.lockForm.name
-                          ? ""
-                          : this.state.error.name
-                          ? "is-invalid"
-                          : "is-valid")
-                      }
-                      placeholder="Votre nom"
-                      onChange={this.handleChange}
-                    />
-                    <div className="invalid-feedback">Quel est votre nom?</div>
-                  </div>
-                  <div className="col-md-6">
-                    <label htmlFor="email">
-                      Email <span className="blue">*</span>
-                    </label>
-                    <input
-                      id="email"
-                      type="text"
-                      name="email"
-                      className={
-                        "form-control inputFormBlue " +
-                        (this.state.error.email === undefined ||
-                        !this.state.lockForm.email
-                          ? ""
-                          : this.state.error.email
-                          ? "is-invalid"
-                          : "is-valid")
-                      }
-                      placeholder="Votre email"
-                      onChange={this.handleChange}
-                    />
-                    <div className="invalid-feedback">
-                      Quelle est votre adresse e-mail?
-                    </div>
-                  </div>
-                  <div className="col-md-6">
-                    <label htmlFor="phone">Téléphone</label>
-                    <input
-                      id="phone"
-                      type="tel"
-                      name="phone"
-                      className={
-                        "form-control inputFormBlue " +
-                        (this.state.error.phone === undefined ||
-                        !this.state.lockForm.phone
-                          ? ""
-                          : this.state.error.phone
-                          ? "is-invalid"
-                          : "is-valid")
-                      }
-                      placeholder="Votre téléphone"
-                      onChange={this.handleChange}
-                    />
-                  </div>
-                  <div className="col-md-12">
-                    <label htmlFor="message">
-                      Message <span className="blue">*</span>
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      className={
-                        "form-control inputFormBlue " +
-                        (this.state.error.message === undefined ||
-                        !this.state.lockForm.message
-                          ? ""
-                          : this.state.error.message
-                          ? "is-invalid"
-                          : "is-valid")
-                      }
-                      placeholder="Votre message"
-                      rows="4"
-                      onChange={this.handleChange}
-                    ></textarea>
-                    <div className="invalid-feedback">
-                      Quel est votre message?
-                    </div>
-                  </div>
+                  <FormContact
+                    name="firstname"
+                    label="Prénom"
+                    placeholder="Votre prénom"
+                    invalidFeed="Ce prénom existe vraiment ?"
+                    stateError={this.state.error}
+                    stateLockForm={this.state.lockForm}
+                    handleChange={this.handleChange}
+                    isRequired={true}
+                  />
+
+                  <FormContact
+                    name="name"
+                    label="Nom"
+                    placeholder="Votre nom"
+                    invalidFeed="Pas commun comme nom ..."
+                    stateError={this.state.error}
+                    stateLockForm={this.state.lockForm}
+                    handleChange={this.handleChange}
+                    isRequired={true}
+                  />
+
+                  <FormContact
+                    name="email"
+                    label="E-mail"
+                    placeholder="Votre email"
+                    invalidFeed="Erreur lors de la saisie de votre e-mail"
+                    stateError={this.state.error}
+                    stateLockForm={this.state.lockForm}
+                    handleChange={this.handleChange}
+                    isRequired={true}
+                  />
+
+                  <FormContact
+                    name="phone"
+                    label="Téléphone"
+                    placeholder="Votre téléphone"
+                    invalidFeed="Erreur lors de la saisie de votre téléphone"
+                    stateError={this.state.error}
+                    stateLockForm={this.state.lockForm}
+                    handleChange={this.handleChange}
+                    isRequired={false}
+                  />
+
+                  <FormContact
+                    name="message"
+                    label="Message"
+                    placeholder="Votre message"
+                    invalidFeed="Je n'ai pas bien capté votre message..."
+                    stateError={this.state.error}
+                    stateLockForm={this.state.lockForm}
+                    handleChange={this.handleChange}
+                    isRequired={true}
+                  />
+
                   <div className="col-md-12 font-weight-bold">
                     <p className="blue mt-2">
                       * Ces informations sont requises.
