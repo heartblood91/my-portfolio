@@ -2,6 +2,15 @@ import React, { Component, Fragment } from "react";
 import axios from "axios";
 const BASE_URL = "http://localhost:3000";
 
+// Une partie du state qui fait l'objet d'un reset régulier
+const initSomeState = {
+  error: {
+    iError: -1,
+  },
+  backendMessage: "",
+  inProgress: false,
+};
+
 class Contact extends Component {
   state = {
     form: {
@@ -11,68 +20,105 @@ class Contact extends Component {
       phone: "",
       message: "",
     },
-    error: {
-      iError: -1,
+    lockForm: {
+      firstname: false,
+      name: false,
+      email: false,
+      phone: false,
+      message: false,
     },
-    backendMessage: "",
+    ...initSomeState,
   };
 
   formValidate = (event) => {
     event.preventDefault();
 
-    // Je fais une copie d'erreur
-    const error = Object.assign({}, this.state.error);
+    // Je reset le state puis je continue la fonction
+    this.setState(
+      {
+        ...initSomeState,
+      },
+      () => {
+        // Je fais une copie d'erreur
+        const error = Object.assign({}, this.state.error);
 
-    //Je reset le compteur d'erreur:
-    error.iError = 0;
+        // Je mets le compteur d'erreur à 0
+        error.iError = 0;
 
-    // Je check chaque informations et je mets à jour la variable erreur
-    Object.keys(this.state.form).map((key) => {
-      // Je check les erreurs
-      error[key] =
-        this.state.form[key] === "" && key !== "phone" ? true : false;
+        // Je check chaque informations et je mets à jour la variable erreur
+        Object.keys(this.state.form).map((key) => {
+          // Je check les erreurs. Par défaut, aucune erreur possible à phone
+          error[key] =
+            this.state.form[key] === "" && key !== "phone" ? true : false;
 
-      // Je compte le nombre d'erreur
-      error[key] && (error.iError += 1);
+          // Je compte le nombre d'erreur
+          error[key] && (error.iError += 1);
 
-      return error.iError;
-    });
-
-    // Si aucune erreur alors, je fais une requête via axios à l'API pour demander l'envoie d'un mail.
-    if (error.iError === 0) {
-      // Reset du message backend
-      this.feedbackBackend(null);
-
-      axios
-        .post(`${BASE_URL}/sendAMail`, {
-          // je transmet les informations dans le corps de la requête
-
-          firstname: this.state.form.firstname,
-          name: this.state.form.name,
-          mail: this.state.form.email,
-          phone: this.state.form.phone,
-          message: this.state.form.message,
-        })
-        // si j'ai un retour, sans erreur, je préviens l'utilisateur que son message a été envoyé
-        .then(() => {
-          // Reset du message backend
-          this.feedbackBackend(true);
-        })
-        // En cas d'erreur, je n'autorise pas la connexion
-        .catch(() => {
-          this.feedbackBackend(false);
+          return error.iError;
         });
-    }
 
-    // J'actualise le state
-    this.setState({ error });
+        // Si aucune erreur alors, je fais une requête via axios à l'API pour demander l'envoie d'un email.
+        if (error.iError === 0) {
+          // Reset du message backend
+          this.feedbackBackend(null);
+
+          axios
+            .post(`${BASE_URL}/sendAMail`, {
+              // je transmet les informations dans le corps de la requête
+
+              firstname: this.state.form.firstname,
+              name: this.state.form.name,
+              email: this.state.form.email,
+              phone: this.state.form.phone,
+              message: this.state.form.message,
+            })
+            // si j'ai un retour, sans erreur, je préviens l'utilisateur que son message a été envoyé
+            .then(() => {
+              // Reset du message backend
+              this.feedbackBackend(true);
+            })
+            // En cas d'erreur, je n'autorise pas la connexion
+            .catch(() => {
+              this.feedbackBackend(false);
+            });
+        }
+
+        // J'actualise le state (erreur + je lock les informations validées en cas de changement)
+        this.setState({
+          error,
+          lockForm: {
+            firstname: true,
+            name: true,
+            email: true,
+            phone: true,
+            message: true,
+          },
+        });
+      }
+    );
   };
 
   handleChange = (event) => {
-    // Recupère la valeur et le champs correspondant pour les stocker dans le state
+    // Recupère la valeur et le champs correspondant pour les stocker dans le state + je delock les informations + reset les info du précédent validate
     const { value, name } = event.target;
 
-    this.setState({ form: { ...this.state.form, [name]: value } });
+    // Etape 0: création du informations à MAJ
+
+    // Si aucune transmission en cours alors on reset l'intégralité des infos
+    let newState = !this.state.inProgress
+      ? Object.assign({}, initSomeState)
+      : {};
+
+    // Si un mail est en cours de transmission alors on delock seulement + transmission des new informations
+    newState = {
+      ...newState,
+      form: { ...this.state.form, [name]: value },
+      lockForm: { ...this.state.lockForm, [name]: false },
+    };
+
+    this.setState({
+      ...newState,
+    });
   };
 
   feedbackMessage = () => {
@@ -168,7 +214,7 @@ class Contact extends Component {
     };
 
     // Etape 2: MAJ du message et de la barre en fonction de la requête
-    // En cas d'échec pour la transmission du mail
+    // En cas d'échec pour la transmission du email
     if (isSuccess === false) {
       // J'arrête la progression
       this.setState({ inProgress: false }, () => {
@@ -227,7 +273,8 @@ class Contact extends Component {
                       name="firstname"
                       className={
                         "form-control inputFormBlue " +
-                        (this.state.error.firstname === undefined
+                        (this.state.error.firstname === undefined ||
+                        !this.state.lockForm.firstname
                           ? ""
                           : this.state.error.firstname
                           ? "is-invalid"
@@ -250,7 +297,8 @@ class Contact extends Component {
                       name="name"
                       className={
                         "form-control inputFormBlue " +
-                        (this.state.error.name === undefined
+                        (this.state.error.name === undefined ||
+                        !this.state.lockForm.name
                           ? ""
                           : this.state.error.name
                           ? "is-invalid"
@@ -271,7 +319,8 @@ class Contact extends Component {
                       name="email"
                       className={
                         "form-control inputFormBlue " +
-                        (this.state.error.email === undefined
+                        (this.state.error.email === undefined ||
+                        !this.state.lockForm.email
                           ? ""
                           : this.state.error.email
                           ? "is-invalid"
@@ -290,7 +339,15 @@ class Contact extends Component {
                       id="phone"
                       type="tel"
                       name="phone"
-                      className="form-control inputFormBlue"
+                      className={
+                        "form-control inputFormBlue " +
+                        (this.state.error.phone === undefined ||
+                        !this.state.lockForm.phone
+                          ? ""
+                          : this.state.error.phone
+                          ? "is-invalid"
+                          : "is-valid")
+                      }
                       placeholder="Votre téléphone"
                       onChange={this.handleChange}
                     />
@@ -304,7 +361,8 @@ class Contact extends Component {
                       name="message"
                       className={
                         "form-control inputFormBlue " +
-                        (this.state.error.message === undefined
+                        (this.state.error.message === undefined ||
+                        !this.state.lockForm.message
                           ? ""
                           : this.state.error.message
                           ? "is-invalid"
