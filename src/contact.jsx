@@ -18,7 +18,7 @@ class Contact extends Component {
       firstname: "",
       name: "",
       email: "",
-      phone: "",
+      tel: "",
       message: "",
       token1: "",
     },
@@ -26,7 +26,7 @@ class Contact extends Component {
       firstname: false,
       name: false,
       email: false,
-      phone: false,
+      tel: false,
       message: false,
       token1: false,
     },
@@ -50,9 +50,9 @@ class Contact extends Component {
 
         // Je check chaque informations et je mets à jour la variable erreur
         Object.keys(this.state.form).map((key) => {
-          // Je check les erreurs. Par défaut, aucune erreur possible à phone ou token1
+          //  Je check les erreurs. Par défaut, aucune erreur possible à tel ou token1
           error[key] =
-            this.state.form[key] === "" && key !== "phone" && key !== "token1"
+            this.state.form[key] === "" && key !== "tel" && key !== "token1"
               ? true
               : false;
 
@@ -66,7 +66,6 @@ class Contact extends Component {
         if (error.iError === 0 && this.state.form.token1 === "") {
           // Reset du message backend
           this.feedbackBackend(null);
-
           axios
             .post(`${BASE_URL}/sendAMail`, {
               // je transmet les informations dans le corps de la requête
@@ -74,7 +73,7 @@ class Contact extends Component {
               firstname: this.state.form.firstname,
               name: this.state.form.name,
               email: this.state.form.email,
-              phone: this.state.form.phone,
+              tel: this.state.form.tel,
               message: this.state.form.message,
             })
             // si j'ai un retour, sans erreur, je préviens l'utilisateur que son message a été envoyé
@@ -83,8 +82,16 @@ class Contact extends Component {
               this.feedbackBackend(true);
             })
             // En cas d'erreur, je n'autorise pas la connexion
-            .catch(() => {
-              this.feedbackBackend(false);
+            .catch((err) => {
+              // Pour éviter un crash, on vérifie l'existance de err.response.data
+              const error =
+                typeof err.response === "object"
+                  ? err.response.data !== "undefined"
+                    ? err.response.data
+                    : err.response
+                  : err;
+
+              this.feedbackBackend(false, error);
             });
         }
 
@@ -95,7 +102,7 @@ class Contact extends Component {
             firstname: true,
             name: true,
             email: true,
-            phone: true,
+            tel: true,
             message: true,
           },
         });
@@ -133,7 +140,7 @@ class Contact extends Component {
       return (
         <p className="text-danger text-center">
           Il y a {this.state.error.iError} champ{isPluriel} obligatoire
-          {isPluriel} non rempli{isPluriel}. Il{isPluriel}{" "}
+          {isPluriel} mal renseigné{isPluriel}. Il{isPluriel}{" "}
           {isPluriel === "s" ? "sont" : "est"} encadré
           {isPluriel} en rouge.
           <br />
@@ -161,7 +168,7 @@ class Contact extends Component {
     }
   };
 
-  feedbackBackend = (isSuccess) => {
+  feedbackBackend = (isSuccess, typeError) => {
     // Fixe les variables :
     let backendMessage;
     let valueProgressBar = 10;
@@ -234,22 +241,33 @@ class Contact extends Component {
     if (isSuccess === false) {
       // J'arrête la progression
       this.setState({ inProgress: false }, () => {
-        //stopProgress();
+        // Je transmet le nouveau message :
+        if (typeError === "adresse mail non valide") {
+          // Soit il s'agit d'une adresse mail non valide :
+          backendMessage = creatorBackendMessage(
+            "danger",
+            "Votre adresse mail n'est pas valide... :-(",
+            "100"
+          );
 
-        // Je transmet le nouveau message (avertissement de l'échec)
-        backendMessage = creatorBackendMessage(
-          "danger",
-          "Oupss... Il y a un problème... Le message n'est pas parvenu...",
-          "100"
-        );
+          // Je mets à jour le state en conséquence
+          this.setState({
+            error: { ...this.state.error, email: true, iError: 1 },
+          });
+        } else {
+          // Soit une autre erreur (par défaut, j'envoie juste un avertissement de l'échec)
+          backendMessage = creatorBackendMessage(
+            "danger",
+            "Oupss... Il y a un problème... Le message n'est pas parvenu...",
+            "100"
+          );
+        }
       });
 
       // En cas de succès
     } else if (isSuccess) {
       // J'arrête la progression
       this.setState({ inProgress: false }, () => {
-        // stopProgress();
-
         // Je transmet le message de succès
         backendMessage = creatorBackendMessage(
           "success",
@@ -313,7 +331,7 @@ class Contact extends Component {
                   />
 
                   <FormContact
-                    name="phone"
+                    name="tel"
                     label="Téléphone"
                     placeholder="Votre téléphone"
                     invalidFeed="Erreur lors de la saisie de votre téléphone"
