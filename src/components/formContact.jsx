@@ -17,7 +17,7 @@ const FormContact = (props) => {
 
   let className = {
     id: name,
-    type: "text",
+    type: name === "tel" || "email" ? name : "text",
     name,
     className:
       "form-control inputFormBlue " +
