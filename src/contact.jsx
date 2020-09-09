@@ -20,6 +20,7 @@ class Contact extends Component {
       email: "",
       phone: "",
       message: "",
+      token1: "",
     },
     lockForm: {
       firstname: false,
@@ -27,6 +28,7 @@ class Contact extends Component {
       email: false,
       phone: false,
       message: false,
+      token1: false,
     },
     ...initSomeState,
   };
@@ -48,9 +50,11 @@ class Contact extends Component {
 
         // Je check chaque informations et je mets à jour la variable erreur
         Object.keys(this.state.form).map((key) => {
-          // Je check les erreurs. Par défaut, aucune erreur possible à phone
+          // Je check les erreurs. Par défaut, aucune erreur possible à phone ou token1
           error[key] =
-            this.state.form[key] === "" && key !== "phone" ? true : false;
+            this.state.form[key] === "" && key !== "phone" && key !== "token1"
+              ? true
+              : false;
 
           // Je compte le nombre d'erreur
           error[key] && (error.iError += 1);
@@ -59,7 +63,7 @@ class Contact extends Component {
         });
 
         // Si aucune erreur alors, je fais une requête via axios à l'API pour demander l'envoie d'un email.
-        if (error.iError === 0) {
+        if (error.iError === 0 && this.state.form.token1 === "") {
           // Reset du message backend
           this.feedbackBackend(null);
 
@@ -124,7 +128,8 @@ class Contact extends Component {
 
   feedbackMessage = () => {
     const isPluriel = this.state.error.iError >= 2 ? "s" : "";
-    if (this.state.error.iError > 0) {
+    // Si des erreurs (mais token1 non renseigné)
+    if (this.state.error.iError > 0 && this.state.form.token1 === "") {
       return (
         <p className="text-danger text-center">
           Il y a {this.state.error.iError} champ{isPluriel} obligatoire
@@ -136,11 +141,21 @@ class Contact extends Component {
           de rappuyer sur le bouton! ;-)
         </p>
       );
-    } else if (this.state.error.iError === 0) {
+      // Si aucune erreur (et token1 non renseigné)
+    } else if (this.state.error.iError === 0 && this.state.form.token1 === "") {
       return (
         <p className="text-success text-center">
           {" "}
           Parfait! Je m'occupe d'envoyer votre message!{" "}
+        </p>
+      );
+
+      // Quelque soit le nombre d'erreur ( + token1 renseigné)
+    } else if (this.state.form.token1 !== "" && this.state.error.iError >= 0) {
+      return (
+        <p className="text-danger text-center">
+          Je pense que vous êtes un bot, je ne ferais pas parvenir votre mail,
+          sorry ;-)
         </p>
       );
     }
@@ -318,6 +333,18 @@ class Contact extends Component {
                     handleChange={this.handleChange}
                     isRequired={true}
                   />
+                  <div className="col-md-6 d-none">
+                    <label htmlFor="token1">Token 1</label>
+
+                    <input
+                      id="token1"
+                      type="text"
+                      name="token1"
+                      className="form-control inputFormBlue "
+                      placeholder="Inscrivez la valeur du token1"
+                      onChange={this.handleChange}
+                    />
+                  </div>
 
                   <div className="col-md-12 font-weight-bold">
                     <p className="blue mt-2">
