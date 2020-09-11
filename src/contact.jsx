@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import axios from "axios";
 import FormContact from "./components/formContact";
+import SnippetForContact from "./components/snippets-contact";
 const BASE_URL = "http://localhost:3000";
 
 // Une partie du state qui fait l'objet d'un reset régulier
@@ -347,15 +348,7 @@ class Contact extends Component {
             }
         }
 
-        // const errorMessage =
-        //   typeError === "adresse mail non valide"
-        //     ? "Votre adresse mail n'est pas valide... :-("
-        //     : typeError === "Unauthorized"
-        //     ? "Pour des raisons de sécurité, le serveur a rejeté votre demande... :-("
-        //     : "Oupss... Il y a un problème... Le message n'est pas parvenu...";
-
-        // S'il s'agit d'une erreur dans la boite mail, je mets à jour le state en conséquence
-
+        // MAJ du state
         typeError === "adresse mail non valide" &&
           this.setState({
             error: { ...this.state.error, email: true, iError: 1 },
@@ -392,6 +385,14 @@ class Contact extends Component {
           <div className="blue-divider"></div>
           <div className="heading shadow-blue text-uppercase text-center mb-4">
             <h2>Contactez-moi</h2>
+          </div>
+          <div className="card col-10 col-lg-8 mx-auto shadow-box-center py-3 my-5">
+            <div className="card-body">
+              <div className="card-text">
+                {/* Ajoute un snippet avec des couleurs */}
+                <SnippetForContact />
+              </div>
+            </div>
           </div>
 
           <div className="row">

@@ -142,11 +142,11 @@ img {
 .text-grey {
   color: var(--grey) !important;
 }
-.card-header {
+#about .card-header {
   background-color: var(--blue-dark);
   border-radius: calc(2rem - 1px) calc(2rem - 1px) 0 0 !important;
 }
-.card {
+#about .card {
   border-radius: 2rem;
 }
 /* SKILLS */
@@ -434,18 +434,13 @@ img {
   border-color: var(--blue-light);
 }
 
-/* .comments {
-  font-style: italic;
-  font-size: 18px;
-  color: #d82c2e;
-  height: 25px;
+#contact .card {
+  border-radius: 10px;
+  background: rgb(40, 44, 52);
+  line-height: 20px;
+  font-size: 20px;
+  font-family: "Consolas, Courier New, monospace, serif, EmojiFont";
 }
-#contact-form .thank-you {
-  text-align: center;
-  margin-top: 15px;
-  font-weight: bold;
-  font-size: 22px;
-} */
 
 /* FOOTER */
 footer {
