@@ -26,9 +26,9 @@ const Skill = (props) => {
                 data-place="top"
                 data-for="react"
                 data-background-color="#002f68da"
-                style={widthOfBar("25%")}
+                style={widthOfBar("30%")}
               >
-                <h5>React & Redux 25%</h5>
+                <h5>React & Redux 30%</h5>
                 <ReactTooltip id="react">
                   React / Redux / React-Router
                 </ReactTooltip>
@@ -45,9 +45,9 @@ const Skill = (props) => {
                 data-place="top"
                 data-for="react-native"
                 data-background-color="#002f68da"
-                style={widthOfBar("30%")}
+                style={widthOfBar("25%")}
               >
-                <h5>React-Native & Expo 30%</h5>
+                <h5>React-Native & Expo 25%</h5>
                 <ReactTooltip id="react-native">
                   React-Native / Expo / Redux / React-Navigation
                 </ReactTooltip>
@@ -85,9 +85,9 @@ const Skill = (props) => {
                 data-place="top"
                 data-for="backend"
                 data-background-color="#002f68da"
-                style={widthOfBar("20%")}
+                style={widthOfBar("30%")}
               >
-                <h5>Backend 20%</h5>
+                <h5>Backend 30%</h5>
                 <ReactTooltip id="backend">
                   Express.Js / Mongoose / Firebase
                 </ReactTooltip>
@@ -104,9 +104,9 @@ const Skill = (props) => {
                 data-place="top"
                 data-for="test"
                 data-background-color="#002f68da"
-                style={widthOfBar("20%")}
+                style={widthOfBar("15%")}
               >
-                <h5>Mocha 20%</h5>
+                <h5>Mocha 15%</h5>
                 <ReactTooltip id="test">
                   Test unitaire utilisé sur une API
                 </ReactTooltip>

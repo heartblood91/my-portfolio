@@ -33,8 +33,8 @@ const Experience = (props) => {
                   </p>
 
                   <p>
-                    Animation de réunion sur les nouveaux outils misent en
-                    place, accompagnement et maintenance.
+                    Animation de réunion sur les nouveaux outils mis en place,
+                    accompagnement et maintenance.
                   </p>
                   <p>
                     Modernisation, évolution et optimisation des tâches
@@ -66,7 +66,10 @@ const Experience = (props) => {
                   </p>
                 </div>
                 <div className="timeline-body">
-                  <p>Maintenance informatique et serveur</p>
+                  <p>
+                    Maintenance informatique et serveur d’une grande direction
+                    parisienne (~1200 UC / 50 serveurs)
+                  </p>
                   <p>Assistant RSSI</p>
                   <p>
                     <u>Equipe projet:</u> mise en place de nouveaux produits et
