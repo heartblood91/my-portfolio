@@ -21,6 +21,7 @@ class Contact extends Component {
       tel: "",
       message: "",
       token1: "",
+      token2: "",
     },
     lockForm: {
       firstname: false,
@@ -30,11 +31,17 @@ class Contact extends Component {
       message: false,
       token1: false,
     },
+    errorToken: "",
     ...initSomeState,
   };
 
+  // Lors du montage du composant, on récupère le token nécessaire à l'envoie de mail
+  componentDidMount = () => {
+    this.refreshToken(false);
+  };
+
   formValidate = (event) => {
-    event.preventDefault();
+    typeof event !== "undefined" && event.preventDefault();
 
     // Je reset le state puis je continue la fonction
     this.setState(
@@ -63,7 +70,12 @@ class Contact extends Component {
         });
 
         // Si aucune erreur alors, je fais une requête via axios à l'API pour demander l'envoie d'un email.
-        if (error.iError === 0 && this.state.form.token1 === "") {
+        // Pour cela token1 doit être vide (car pot de miel) + token2 doit contenir une valeur correspondant à un token secrètement échangé lors du montage du composant
+        if (
+          error.iError === 0 &&
+          this.state.form.token1 === "" &&
+          this.state.form.token2 !== ""
+        ) {
           // Reset du message backend
           this.feedbackBackend(null);
           axios
@@ -75,6 +87,7 @@ class Contact extends Component {
               email: this.state.form.email,
               tel: this.state.form.tel,
               message: this.state.form.message,
+              token: this.state.form.token2,
             })
             // si j'ai un retour, sans erreur, je préviens l'utilisateur que son message a été envoyé
             .then(() => {
@@ -84,14 +97,21 @@ class Contact extends Component {
             // En cas d'erreur, je n'autorise pas la connexion
             .catch((err) => {
               // Pour éviter un crash, on vérifie l'existance de err.response.data
-              const error =
-                typeof err.response === "object"
-                  ? err.response.data !== "undefined"
-                    ? err.response.data
-                    : err.response
-                  : err;
+              let error,
+                stateError = "";
 
-              this.feedbackBackend(false, error);
+              if (typeof err.response === "object") {
+                if (err.response.data !== "undefined") {
+                  error = err.response.data;
+                  stateError = err.response.status;
+                } else {
+                  error = stateError = err.response;
+                }
+              } else {
+                error = stateError = err;
+              }
+
+              this.feedbackBackend(false, error, stateError);
             });
         }
 
@@ -132,11 +152,36 @@ class Contact extends Component {
       ...newState,
     });
   };
-
+  refreshToken = (isFull) => {
+    axios
+      .get(`${BASE_URL}/createToken`, {})
+      // si j'ai un retour, sans erreur, je récupère le token
+      .then((response) => {
+        // Stock le token dans le state
+        this.setState(
+          {
+            form: { ...this.state.form, token2: response.data },
+          },
+          () => {
+            // Si le refresh a été demandé par l'utilisateur via le bouton, alors, après le setState, on transmet la requête
+            isFull && this.formValidate();
+          }
+        );
+      })
+      // En cas d'erreur, je ne pourrais pas transmettre de mail, je set le state
+      .catch(() => {
+        const errorToken = isFull ? "Serveur indisponible" : "Pas de token...";
+        this.setState({ errorToken });
+      });
+  };
   feedbackMessage = () => {
     const isPluriel = this.state.error.iError >= 2 ? "s" : "";
     // Si des erreurs (mais token1 non renseigné)
-    if (this.state.error.iError > 0 && this.state.form.token1 === "") {
+    if (
+      this.state.error.iError > 0 &&
+      this.state.form.token1 === "" &&
+      this.state.form.token2 !== ""
+    ) {
       return (
         <p className="text-danger text-center">
           Il y a {this.state.error.iError} champ{isPluriel} obligatoire
@@ -149,7 +194,11 @@ class Contact extends Component {
         </p>
       );
       // Si aucune erreur (et token1 non renseigné)
-    } else if (this.state.error.iError === 0 && this.state.form.token1 === "") {
+    } else if (
+      this.state.error.iError === 0 &&
+      this.state.form.token1 === "" &&
+      this.state.form.token2 !== ""
+    ) {
       return (
         <p className="text-success text-center">
           {" "}
@@ -158,17 +207,40 @@ class Contact extends Component {
       );
 
       // Quelque soit le nombre d'erreur ( + token1 renseigné)
-    } else if (this.state.form.token1 !== "" && this.state.error.iError >= 0) {
+    } else if (
+      this.state.form.token1 !== "" &&
+      this.state.form.token2 === "" &&
+      this.state.error.iError >= 0
+    ) {
       return (
         <p className="text-danger text-center">
           Je pense que vous êtes un bot, je ne ferais pas parvenir votre mail,
           sorry ;-)
         </p>
       );
+    } else if (this.state.form.token1 === "" && this.state.error.iError >= 0) {
+      return (
+        <div className="text-center">
+          <p className="text-danger">
+            {this.state.errorToken === "Pas de token..."
+              ? " Hmmmmm.... C'est embarrassant... Si vous n'êtes pas un bot, appuyez sur le bouton qui vient d'apparaître juste en dessous. ;-)"
+              : "Apparament le serveur n'est pas disponible... Sorry... :-( "}
+          </p>
+          <input
+            type="button"
+            className="btn btn-outline-info"
+            onClick={this.refreshToken.bind(this, true)}
+            value="Refresh"
+            disabled={
+              this.state.errorToken === "Serveur indisponible" ? true : false
+            }
+          />
+        </div>
+      );
     }
   };
 
-  feedbackBackend = (isSuccess, typeError) => {
+  feedbackBackend = (isSuccess, typeError, statusError) => {
     // Fixe les variables :
     let backendMessage;
     let valueProgressBar = 10;
@@ -241,27 +313,56 @@ class Contact extends Component {
     if (isSuccess === false) {
       // J'arrête la progression
       this.setState({ inProgress: false }, () => {
-        // Je transmet le nouveau message :
-        if (typeError === "adresse mail non valide") {
-          // Soit il s'agit d'une adresse mail non valide :
-          backendMessage = creatorBackendMessage(
-            "danger",
-            "Votre adresse mail n'est pas valide... :-(",
-            "100"
-          );
+        // Soit il s'agit d'une adresse mail non valide (MAJ du state)
+        // Soit du token qui n'est pas conforme
+        // Soit une autre erreur client - serveur
+        let errorMessage = "";
+        switch (typeError) {
+          // S'il s'agit d'une erreur dans la boite mail, je mets à jour le state en conséquence
+          case "adresse mail non valide":
+            errorMessage = "Votre adresse mail n'est pas valide... :-(";
+            this.setState({
+              error: { ...this.state.error, email: true, iError: 1 },
+            });
 
-          // Je mets à jour le state en conséquence
+            break;
+
+          // Dans ce cas, il s'agit soit
+          case "unauthorized":
+            errorMessage =
+              "Pour des raisons de sécurité, le serveur a rejeté votre demande... :-(";
+            break;
+
+          default:
+            if (statusError === 400) {
+              errorMessage =
+                "Pour des raisons de sécurité, le serveur a rejeté votre demande... Mais la deuxième fois sera la bonne ;-)";
+
+              this.setState({
+                form: { ...this.state.form, token2: typeError },
+              });
+            } else {
+              errorMessage =
+                "Oupss... Il y a un problème... Le message n'est pas parvenu...";
+            }
+        }
+
+        // const errorMessage =
+        //   typeError === "adresse mail non valide"
+        //     ? "Votre adresse mail n'est pas valide... :-("
+        //     : typeError === "Unauthorized"
+        //     ? "Pour des raisons de sécurité, le serveur a rejeté votre demande... :-("
+        //     : "Oupss... Il y a un problème... Le message n'est pas parvenu...";
+
+        // S'il s'agit d'une erreur dans la boite mail, je mets à jour le state en conséquence
+
+        typeError === "adresse mail non valide" &&
           this.setState({
             error: { ...this.state.error, email: true, iError: 1 },
           });
-        } else {
-          // Soit une autre erreur (par défaut, j'envoie juste un avertissement de l'échec)
-          backendMessage = creatorBackendMessage(
-            "danger",
-            "Oupss... Il y a un problème... Le message n'est pas parvenu...",
-            "100"
-          );
-        }
+
+        // Je transmet le nouveau message :
+        backendMessage = creatorBackendMessage("danger", errorMessage, "100");
       });
 
       // En cas de succès

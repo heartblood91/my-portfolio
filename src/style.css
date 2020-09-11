@@ -129,6 +129,7 @@ section {
   color: var(--blue-light);
   text-decoration: none;
 }
+
 img {
   border-radius: 10% !important;
 }
@@ -408,6 +409,23 @@ img {
 #contact-form input[type="submit"] {
   margin: 40px auto 0px;
   display: block;
+}
+
+.btn-outline-info {
+  color: var(--blue-light);
+  border-color: var(--blue-light);
+}
+
+.btn-outline-info:not(:disabled):not(.disabled).active,
+.btn-outline-info:not(:disabled):not(.disabled):active,
+.show > .btn-outline-info.dropdown-toggle {
+  background-color: var(--blue-light);
+  border-color: var(--blue-light);
+}
+
+.btn-outline-info:hover {
+  background-color: var(--blue-light);
+  border-color: var(--blue-light);
 }
 
 /* .comments {
