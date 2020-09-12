@@ -184,7 +184,7 @@ class Contact extends Component {
       this.state.form.token2 !== ""
     ) {
       return (
-        <p className="text-danger text-center">
+        <p className="text-danger text-center animationFade">
           Il y a {this.state.error.iError} champ{isPluriel} obligatoire
           {isPluriel} mal renseigné{isPluriel}. Il{isPluriel}{" "}
           {isPluriel === "s" ? "sont" : "est"} encadré
@@ -201,7 +201,7 @@ class Contact extends Component {
       this.state.form.token2 !== ""
     ) {
       return (
-        <p className="text-success text-center">
+        <p className="text-success text-center animationFade">
           {" "}
           Parfait! Je m'occupe d'envoyer votre message!{" "}
         </p>
@@ -214,7 +214,7 @@ class Contact extends Component {
       this.state.error.iError >= 0
     ) {
       return (
-        <p className="text-danger text-center">
+        <p className="text-danger text-center animationFade">
           Je pense que vous êtes un bot, je ne ferais pas parvenir votre mail,
           sorry ;-)
         </p>
@@ -222,7 +222,7 @@ class Contact extends Component {
     } else if (this.state.form.token1 === "" && this.state.error.iError >= 0) {
       return (
         <div className="text-center">
-          <p className="text-danger">
+          <p className="text-danger animationFade">
             {this.state.errorToken === "Pas de token..."
               ? " Hmmmmm.... C'est embarrassant... Si vous n'êtes pas un bot, appuyez sur le bouton qui vient d'apparaître juste en dessous. ;-)"
               : "Apparament le serveur n'est pas disponible... Sorry... :-( "}
@@ -257,7 +257,7 @@ class Contact extends Component {
         <Fragment>
           <p
             className={
-              "text-center " +
+              "text-center animationFade " +
               // Permet d'ajouter une couleur au texte danger vs success vs rien
               (whichType === "normal" ? "" : "text-" + whichType)
             }
@@ -265,7 +265,7 @@ class Contact extends Component {
             {messageProgressBar}
           </p>
           <div
-            className="progress"
+            className="progress animationFade"
             style={{ margin: "auto", width: "50%", height: "10px" }}
           >
             <div
