@@ -58,11 +58,14 @@ class Contact extends Component {
 
         // Je check chaque informations et je mets à jour la variable erreur
         Object.keys(this.state.form).map((key) => {
-          //  Je check les erreurs. Par défaut, aucune erreur possible à tel ou token1
-          error[key] =
-            this.state.form[key] === "" && key !== "tel" && key !== "token1"
-              ? true
-              : false;
+          //  Je check les erreurs. Par défaut, aucune erreur possible à tel.
+          if (key !== "tel" && key !== "token1") {
+            error[key] = this.state.form[key] === "" ? true : false;
+
+            // Token1 est inversé (pot de miel), il faut impérativement qu'il soit vide
+          } else if (key === "token1") {
+            error.token1 = this.state.form.token1 === "" ? false : true;
+          }
 
           // Je compte le nombre d'erreur
           error[key] && (error.iError += 1);
@@ -71,12 +74,7 @@ class Contact extends Component {
         });
 
         // Si aucune erreur alors, je fais une requête via axios à l'API pour demander l'envoie d'un email.
-        // Pour cela token1 doit être vide (car pot de miel) + token2 doit contenir une valeur correspondant à un token secrètement échangé lors du montage du composant
-        if (
-          error.iError === 0 &&
-          this.state.form.token1 === "" &&
-          this.state.form.token2 !== ""
-        ) {
+        if (error.iError === 0) {
           // Reset du message backend
           this.feedbackBackend(null);
           axios
@@ -176,16 +174,27 @@ class Contact extends Component {
       });
   };
   feedbackMessage = () => {
-    const isPluriel = this.state.error.iError >= 2 ? "s" : "";
-    // Si des erreurs (mais token1 non renseigné)
+    // Si j'ai des erreurs mais pas uniquement à cause du token2
     if (
-      this.state.error.iError > 0 &&
-      this.state.form.token1 === "" &&
-      this.state.form.token2 !== ""
+      (this.state.error.iError >= 2 && this.state.error.token2 === true) ||
+      (this.state.error.iError >= 1 && this.state.error.token2 === false)
     ) {
+      // Je ne compte pas les erreurs sur les champs cachés, pour cela:
+
+      // Je copie le nombre d'erreur et je fais une soustraction sur les champs masqués
+      let iError =
+        this.state.error.token1 === true
+          ? this.state.error.iError - 1
+          : this.state.error.iError;
+
+      iError = this.state.error.token2 === true ? iError - 1 : iError;
+
+      // si plusieurs erreurs alors => pluriel
+      const isPluriel = iError >= 2 ? "s" : "";
+
       return (
         <p className="text-danger text-center animationFade">
-          Il y a {this.state.error.iError} champ{isPluriel} obligatoire
+          Il y a {iError} champ{isPluriel} obligatoire
           {isPluriel} mal renseigné{isPluriel}. Il{isPluriel}{" "}
           {isPluriel === "s" ? "sont" : "est"} encadré
           {isPluriel} en rouge.
@@ -194,24 +203,18 @@ class Contact extends Component {
           de rappuyer sur le bouton! ;-)
         </p>
       );
-      // Si aucune erreur (et token1 non renseigné)
-    } else if (
-      this.state.error.iError === 0 &&
-      this.state.form.token1 === "" &&
-      this.state.form.token2 !== ""
-    ) {
+      // Si je n'ai aucune erreur
+    } else if (this.state.error.iError === 0) {
       return (
         <p className="text-success text-center animationFade">
-          {" "}
           Parfait! Je m'occupe d'envoyer votre message!{" "}
         </p>
       );
 
-      // Quelque soit le nombre d'erreur ( + token1 renseigné)
+      // Si mes 2 vérifs anti-bot ne sont pas bonnes
     } else if (
-      this.state.form.token1 !== "" &&
-      this.state.form.token2 === "" &&
-      this.state.error.iError >= 0
+      this.state.error.token1 === true &&
+      this.state.error.token2 === true
     ) {
       return (
         <p className="text-danger text-center animationFade">
@@ -219,7 +222,12 @@ class Contact extends Component {
           sorry ;-)
         </p>
       );
-    } else if (this.state.form.token1 === "" && this.state.error.iError >= 0) {
+
+      // S'il n'y a pas de token2 de renseigné et s'il s'agit de ma seule erreur
+    } else if (
+      this.state.error.token2 === true &&
+      this.state.error.iError === 1
+    ) {
       return (
         <div className="text-center">
           <p className="text-danger animationFade">
