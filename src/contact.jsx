@@ -2,7 +2,8 @@ import React, { Component, Fragment } from "react";
 import axios from "axios";
 import FormContact from "./components/formContact";
 import SnippetForContact from "./components/snippets-contact";
-const BASE_URL = "http://localhost:3000";
+
+import { BASE_URL } from "./config";
 
 // Une partie du state qui fait l'objet d'un reset régulier
 const initSomeState = {
