@@ -50,9 +50,11 @@ const About = (props) => {
                 Full-Stack, permettant un apprentissage continu, m’a fait
                 constater que cette profession est un boost de motivation. Il
                 est en parfaite adéquation avec ma personnalité, et me permet
-                d’utiliser mon plein potentiel. Ma voie étant trouvée, je me
-                mets au défi de réaliser cette reconversion professionnelle. Je
-                recherche l’entreprise qui acceptera de relever ce défi !
+                d’utiliser mon plein potentiel. Ma voie étant trouvée et ma
+                motivation sans réserve, j'ai aujourd'hui pour objectif de
+                réussir pleinement cette reconversion professionnelle. Je
+                recherche l'entreprise qui pourra me permettre de relever ce
+                challenge!
               </p>
             </div>
             <a
