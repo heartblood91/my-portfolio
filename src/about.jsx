@@ -29,7 +29,7 @@ const About = (props) => {
             <h5 className="card-title">En quelques mots...</h5>
             <div
               className="card-text text-justify mt-3 p-3"
-              style={{ textIndent: "3em", fontSize: "1.1rem" }}
+              style={{ textIndent: "1em", fontSize: "1.1em" }}
             >
               <p>
                 Passionné par le développement informatique depuis mon

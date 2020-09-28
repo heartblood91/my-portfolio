@@ -532,6 +532,72 @@ footer a:hover {
     opacity: 0;
   }
   100% {
-    opacity: 1;
+    /* opacity: 1; */
+  }
+}
+
+/* Version mobile type S5 / Iphone5 ... avec une largeur de 360px max */
+@media (max-width: 360px) {
+  p {
+    font-size: 1em;
+    text-indent: 0.5em;
+    text-align: center;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: 1.5em;
+  }
+
+  footer h5 {
+    font-size: 1.2em;
+  }
+
+  .horizontaLine1 {
+    width: 80%;
+  }
+
+  .horizontaLine2 {
+    width: 60%;
+  }
+
+  .horizontaLine3 {
+    width: 40%;
+  }
+
+  .horizontaLine4 {
+    width: 20%;
+  }
+
+  .col-8 {
+    max-width: 90%;
+  }
+
+  #contact .card-body {
+    padding: 0;
+    font-size: 0.8em;
+  }
+
+  .timeline-badge,
+  .timeline:before,
+  .timeline-panel:after {
+    visibility: hidden;
+  }
+  .timeline-panel-container {
+    margin-left: 10px;
+  }
+
+  .timeline-panel-container-inverted {
+    margin-right: 10px;
+  }
+
+  .timeline-panel-container,
+  .timeline-panel-container-inverted {
+    width: auto;
+    float: none;
   }
 }
