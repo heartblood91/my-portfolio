@@ -1,13 +1,13 @@
 {
   "name": "myportfolio",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "dependencies": {
     "axios": "^0.20.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "^3.4.3",
-    "react-tooltip": "^4.2.9"
+    "react-tooltip": "^4.2.10"
   },
   "scripts": {
     "start": "react-scripts start",
