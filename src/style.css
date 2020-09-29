@@ -536,8 +536,8 @@ footer a:hover {
   }
 }
 
-/* Version mobile type S5 / Iphone5 ... avec une largeur de 360px max */
-@media (max-width: 360px) {
+/* Version mobile type S5 / Iphone5 ... avec une largeur de 499px max */
+@media (max-width: 499px) {
   p {
     font-size: 1em;
     text-indent: 0.5em;
