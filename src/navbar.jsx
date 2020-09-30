@@ -1,6 +1,7 @@
 import React from "react";
+import NavbarItem from "./components/navbarItem";
 
-const Header = props => {
+const Header = (props) => {
   return (
     <nav className="navbar navbar-expand-md navbar-dark sticky-top shadow-box-navbar-blue">
       <button
@@ -17,36 +18,12 @@ const Header = props => {
         id="myNavbar"
       >
         <ul className="nav nav-pills navbar-nav">
-          <li className="nav-item">
-            <a className="nav-link" href="#about">
-              Moi
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#skills">
-              Compétences
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#experience">
-              Expérience
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#education">
-              Education
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#portfolio">
-              Portfolio
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#contact">
-              Contact
-            </a>
-          </li>
+          <NavbarItem href={"#about"} title={"Moi"} />
+          <NavbarItem href={"#skills"} title={"Compétences"} />
+          <NavbarItem href={"#experience"} title={"Expérience"} />
+          <NavbarItem href={"#education"} title={"Education"} />
+          <NavbarItem href={"#portfolio"} title={"Portfolio"} />
+          <NavbarItem href={"#contact"} title={"Contact"} />
         </ul>
       </div>
     </nav>
