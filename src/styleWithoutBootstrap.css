@@ -1,0 +1,169 @@
+/* GENERAL */
+:root {
+  --blue-light: #3498db;
+  --blue-dark: #002f68da;
+  --bg-blue-ultra-light: #75b7e491;
+  --bg-input-forms: #e9f4fc;
+  --grey: #bdc3c7;
+  --grey-dark: hsl(0, 0%, 24%);
+  --orange-color: #ff7100;
+  --red-color: #871a1a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Enlève la scrollbar */
+::-webkit-scrollbar {
+  width: 0;
+}
+
+/* Permet de faire un scroll via les nav link plus smooth */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  z-index: 1020;
+  width: 100%;
+
+  border-bottom: 1px solid var(--blue-dark);
+  padding: 8px 16px;
+  background-color: var(--blue-light);
+
+  -webkit-box-shadow: 0px 5px 50px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 5px 50px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 5px 50px 0px rgba(0, 0, 0, 0.3);
+}
+
+/* ITEMS DE LA NAVBAR */
+.nav-pills {
+  display: grid;
+  grid-template-rows: auto;
+  justify-content: center;
+  text-align: center;
+  margin: 0;
+
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.nav-item {
+  padding: 0;
+}
+
+/* TOGGLER SUR LA NAVBAR */
+.navbar-toggler {
+  padding: 0.5rem 0.75rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+
+  color: #fff !important;
+  border-style: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 3pt 2pt var(--blue-dark);
+  outline: none;
+}
+
+.navbar-collapse {
+  position: relative;
+  overflow: hidden;
+  transition: height 0.36s ease;
+}
+
+/* NAV LINKS */
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.navbar .nav-link,
+.navbar .nav-link:after,
+.navbar .nav-link:before {
+  transition: all 0.5s;
+}
+
+.navbar .nav-link {
+  position: relative;
+  z-index: 1;
+}
+.navbar .nav-link:hover {
+  color: var(--blue-light);
+}
+
+.navbar .nav-link:after {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  content: ".";
+  color: transparent;
+  background: #fff;
+  visibility: hidden;
+  opacity: 0;
+  z-index: -1;
+  border-radius: 0.5rem;
+  height: 1px;
+}
+.navbar .nav-link:hover:after {
+  opacity: 1;
+  visibility: visible;
+  height: 100%;
+}
+
+section#about:hover ~ nav .nav-link[href="#about"],
+section#skills:hover ~ nav .nav-link[href="#skills"],
+section#experience:hover ~ nav .nav-link[href="#experience"],
+section#education:hover ~ nav .nav-link[href="#education"],
+section#portfolio:hover ~ nav .nav-link[href="#portfolio"],
+section#contact:hover ~ nav .nav-link[href="#contact"] {
+  color: var(--blue-light);
+  background: #fff;
+}
+
+/* Version mobile / petit écran */
+
+@media (min-width: 768px) {
+  .nav-pills {
+    grid-template-columns: repeat(6, auto);
+  }
+
+  .navbar-collapse {
+    height: auto !important;
+  }
+
+  .navbar-toggler {
+    display: none;
+  }
+}
+
+/* A DELETE */

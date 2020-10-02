@@ -12,13 +12,13 @@ import Footer from "./footer";
 const App = (props) => {
   return (
     <Fragment>
-      <Navbar />
       <About />
       <Skill />
       <Experience />
       <Education />
       <Portfolio />
       <Contact />
+      <Navbar />
       <Footer />
     </Fragment>
   );
