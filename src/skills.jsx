@@ -112,22 +112,16 @@ const Skill = (props) => {
                 </ReactTooltip>
               </div>
             </div>
-
             <div className="progress shadow-box-light">
               <div
                 className="progress-bar"
                 role="progressbar"
-                aria-valuenow="50"
+                aria-valuenow="55"
                 aria-valuemin="0"
                 aria-valuemax="100"
-                data-tip="tooltip"
-                data-place="top"
-                data-for="cms"
-                data-background-color="#002f68da"
-                style={widthOfBar("50%")}
+                style={widthOfBar("55%")}
               >
-                <h5>Wordpress 50%</h5>
-                <ReactTooltip id="cms">CMS</ReactTooltip>
+                <h5>Git 55%</h5>
               </div>
             </div>
           </div>
@@ -136,12 +130,19 @@ const Skill = (props) => {
               <div
                 className="progress-bar"
                 role="progressbar"
-                aria-valuenow="40"
+                aria-valuenow="30"
                 aria-valuemin="0"
                 aria-valuemax="100"
-                style={widthOfBar("40%")}
+                data-tip="tooltip"
+                data-place="top"
+                data-for="python"
+                data-background-color="#002f68da"
+                style={widthOfBar("20%")}
               >
-                <h5>Git 40%</h5>
+                <h5>Python 20%</h5>
+                <ReactTooltip id="python">
+                  Web Scrapping, Data Analyse
+                </ReactTooltip>
               </div>
             </div>
             <div className="progress shadow-box-light">
