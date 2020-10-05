@@ -1,11 +1,7 @@
 import React from "react";
-import ReactTooltip from "react-tooltip";
+import SkillItem from "./components/skillItem";
 
 const Skill = (props) => {
-  const widthOfBar = (valWidth) => {
-    return { width: valWidth };
-  };
-
   return (
     <section id="skills">
       <div className="blue-divider"></div>
@@ -15,161 +11,60 @@ const Skill = (props) => {
       <div className="container">
         <div className="row shadow-black">
           <div className="col-xl-4 col-md-6">
-            <div className="progress shadow-box-light">
-              <div
-                className="progress-bar"
-                role="progressbar"
-                aria-valuenow="25"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                data-tip="tooltip"
-                data-place="top"
-                data-for="react"
-                data-background-color="#002f68da"
-                style={widthOfBar("30%")}
-              >
-                <h5>React & Redux 30%</h5>
-                <ReactTooltip id="react">
-                  React / Redux / React-Router
-                </ReactTooltip>
-              </div>
-            </div>
-            <div className="progress shadow-box-light">
-              <div
-                className="progress-bar"
-                role="progressbar"
-                aria-valuenow="30"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                data-tip="tooltip"
-                data-place="top"
-                data-for="react-native"
-                data-background-color="#002f68da"
-                style={widthOfBar("25%")}
-              >
-                <h5>React-Native & Expo 25%</h5>
-                <ReactTooltip id="react-native">
-                  React-Native / Expo / Redux / React-Navigation
-                </ReactTooltip>
-              </div>
-            </div>
-            <div className="progress shadow-box-light">
-              <div
-                className="progress-bar"
-                role="progressbar"
-                aria-valuenow="25"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                data-tip="tooltip"
-                data-place="top"
-                data-for="frontend"
-                data-background-color="#002f68da"
-                style={widthOfBar("25%")}
-              >
-                <h5>Frontend 25%</h5>
-                <ReactTooltip id="frontend">
-                  HTML CSS Bootstrap Javascript PHP Jquery TypeScript
-                </ReactTooltip>
-              </div>
-            </div>
+            <SkillItem
+              value="30"
+              forWhat="react"
+              title="React & Redux"
+              tooltip="React / Redux / React-Router"
+            />
+            <SkillItem
+              value="30"
+              forWhat="react-native"
+              title="React-Native"
+              tooltip="React-Native / Expo / Redux / React-Navigation"
+            />
+            <SkillItem
+              value="25"
+              forWhat="frontend"
+              title="Frontend"
+              tooltip="HTML CSS Bootstrap Javascript PHP Jquery TypeScript"
+            />
           </div>
           <div className="col-xl-4 col-md-6">
-            <div className="progress shadow-box-light">
-              <div
-                className="progress-bar"
-                role="progressbar"
-                aria-valuenow="20"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                data-tip="tooltip"
-                data-place="top"
-                data-for="backend"
-                data-background-color="#002f68da"
-                style={widthOfBar("30%")}
-              >
-                <h5>Backend 30%</h5>
-                <ReactTooltip id="backend">
-                  Express.Js / Mongoose / Firebase
-                </ReactTooltip>
-              </div>
-            </div>
-            <div className="progress shadow-box-light">
-              <div
-                className="progress-bar"
-                role="progressbar"
-                aria-valuenow="20"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                data-tip="tooltip"
-                data-place="top"
-                data-for="test"
-                data-background-color="#002f68da"
-                style={widthOfBar("15%")}
-              >
-                <h5>Mocha 15%</h5>
-                <ReactTooltip id="test">
-                  Test unitaire utilisé sur une API
-                </ReactTooltip>
-              </div>
-            </div>
-            <div className="progress shadow-box-light">
-              <div
-                className="progress-bar"
-                role="progressbar"
-                aria-valuenow="55"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style={widthOfBar("55%")}
-              >
-                <h5>Git 55%</h5>
-              </div>
-            </div>
+            <SkillItem
+              value="30"
+              forWhat="backend"
+              title="Backend"
+              tooltip="Express.Js / Mongoose / Firebase"
+            />
+            <SkillItem
+              value="15"
+              forWhat="test"
+              title="Mocha"
+              tooltip="Test unitaire utilisé sur une API"
+            />
+
+            <SkillItem value="55" forWhat="git" title="Git" tooltip={null} />
           </div>
           <div className="col-xl-4 col-md-6">
-            <div className="progress shadow-box-light">
-              <div
-                className="progress-bar"
-                role="progressbar"
-                aria-valuenow="30"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                data-tip="tooltip"
-                data-place="top"
-                data-for="python"
-                data-background-color="#002f68da"
-                style={widthOfBar("20%")}
-              >
-                <h5>Python 20%</h5>
-                <ReactTooltip id="python">
-                  Web Scrapping, Data Analyse
-                </ReactTooltip>
-              </div>
-            </div>
-            <div className="progress shadow-box-light">
-              <div
-                className="progress-bar"
-                role="progressbar"
-                aria-valuenow="20"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style={widthOfBar("20%")}
-              >
-                <h5>Initiation DevOps 20%</h5>
-              </div>
-            </div>
-            <div className="progress shadow-box-light">
-              <div
-                className="progress-bar"
-                role="progressbar"
-                aria-valuenow="30"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                data-background-color="#002f68da"
-                style={widthOfBar("40%")}
-              >
-                <h6>Sensibilisation Cybersécurité 30%</h6>
-              </div>
-            </div>
+            <SkillItem
+              value="20"
+              forWhat="python"
+              title="Python"
+              tooltip="Web Scrapping, Data Analyse"
+            />
+            <SkillItem
+              value="20"
+              forWhat="devops"
+              title="Initiation DevOps"
+              tooltip={null}
+            />
+            <SkillItem
+              value="40"
+              forWhat="cybersecurite"
+              title="Sensibilisation Cybersécurité"
+              tooltip={null}
+            />
           </div>
         </div>
       </div>
