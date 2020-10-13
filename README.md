@@ -6,8 +6,8 @@
 
 - [Description](#description)
 - [Screenshots](#enlive)
-- [Installation Serveur API](#installationAPI)
-- [Installation de l'application android](#installationAndroid)
+- [Installation partie -> Front](#installation-front)
+- [Installation partie -> Backend (API)](#installation-api)
 - [Astuces](#astuces)
 - [Package](#package)
 - [Confidentialité](#confidentialité)
@@ -30,7 +30,7 @@ PS: Je suis un dévéloppeur passionné avec une soif de connaissance! Je suis �
 Faîtes un tour sur mon portfolio en ligne pour vous donner une idée du concept: https://cv.hidemyhome.ovh
 
 <br>
- <section id="installationFront">
+ <section id="installation-front">
 
 ## Installation du Front End
 
@@ -48,7 +48,7 @@ $ npm i
 
 **Pour gagner du temps, suivez la prochaine procédure, cela vous permettra d'installer le serveur API.**
 
- <section id="installationAPI">
+ <section id="installation-api">
 
 ## Installation du serveur API
 
