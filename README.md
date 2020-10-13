@@ -5,7 +5,7 @@
 ## Index
 
 - [Description](#description)
-- [Screenshots](#enlive)
+- [En Live](#enlive)
 - [Installation partie -> Front](#installation-front)
 - [Installation partie -> Backend (API)](#installation-api)
 - [Astuces](#astuces)
