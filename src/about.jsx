@@ -32,13 +32,13 @@ const About = (props) => {
               style={{ textIndent: "1em", fontSize: "1.1em" }}
             >
               <p>
-              Passionné par le développement informatique depuis mon adolescence.
+                Passionné par le développement informatique depuis mon adolescence.
               </p>
               <p>
-                Autodidacte, j’ai amélioré mes compétences en apprenant de nouvelles technologies diverses et variées sur mon temps libre. 
-                C’est le développement web qui m’a le plus intrigué et sur lequel je me suis le plus focalisé. 
-                L’exercice du métier de développeur Full-Stack, permettant un apprentissage continu, m’a fait constater que cette profession est un boost de motivation. 
-                Il est en parfaite adéquation avec ma personnalité, et me permet d’utiliser mon plein potentiel. 
+                Autodidacte, j’ai amélioré mes compétences en apprenant de nouvelles technologies diverses et variées sur mon temps libre.
+                C’est le développement web qui m’a le plus intrigué et sur lequel je me suis le plus focalisé.
+                L’exercice du métier de développeur Full-Stack, permettant un apprentissage continu, m’a fait constater que cette profession est un boost de motivation.
+                Il est en parfaite adéquation avec ma personnalité, et me permet d’utiliser mon plein potentiel.
                 Ma voie étant trouvée et ma motivation sans réserve, je me suis lancé le défi d’en faire une reconversion professionnelle.
               </p>
               <p>

@@ -142,6 +142,7 @@ img {
 .img-thumbnail {
   border-color: var(--blue-dark) !important;
   background-color: var(--blue-dark) !important;
+  max-width: 56%;
 }
 
 .text-grey {
