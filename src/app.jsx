@@ -7,7 +7,7 @@ import Skill from "./skills";
 import Experience from "./experience";
 import Education from "./education";
 import Portfolio from "./portfolio";
-import Contact from "./contact";
+// import Contact from "./contact";
 import Footer from "./footer";
 
 const App = (props) => {
@@ -19,7 +19,7 @@ const App = (props) => {
       <Experience />
       <Education />
       <Portfolio />
-      <Contact />
+      {/* <Contact /> */}
       <Footer />
     </Fragment>
   );
