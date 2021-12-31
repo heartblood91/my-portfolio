@@ -9,7 +9,7 @@ const About = (props) => {
         <img
           src={pictureOfMe}
           alt="C'est moi Cédric"
-          className="img-fluid img-thumbnail shadow-box-center"
+          className="img-fluid img-thumbnail my-picture shadow-box-center"
         />
       </div>
       <div className="pb-4 text-center">

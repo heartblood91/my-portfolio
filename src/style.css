@@ -142,6 +142,9 @@ img {
 .img-thumbnail {
   border-color: var(--blue-dark) !important;
   background-color: var(--blue-dark) !important;
+}
+
+.my-picture {
   max-width: 56%;
 }
 
