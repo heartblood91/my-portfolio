@@ -447,10 +447,15 @@ img {
 
 #contact .card {
   border-radius: 10px;
-  background: rgb(40, 44, 52);
+  background: rgb(32 29 32);
   line-height: 20px;
   font-size: 20px;
   font-family: "Consolas, Courier New, monospace, serif, EmojiFont";
+}
+
+#contact img {
+  border-radius: 0 !important;
+  max-width: 100%;
 }
 
 /* FOOTER */

@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import axios from "axios";
 import FormContact from "./components/formContact";
-import SnippetForContact from "./components/snippets-contact";
+import snipetContactPicture from "./content/images/snippet-contact.webp";
 
 import { BASE_URL } from "./config";
 
@@ -395,11 +395,13 @@ class Contact extends Component {
           <div className="heading shadow-blue text-uppercase text-center mb-4">
             <h2>Contactez-moi</h2>
           </div>
-          <div className="card col-10 col-lg-8 mx-auto shadow-box-center py-3 my-5">
+          <div className="card mx-auto shadow-box-center py-3 my-5">
             <div className="card-body">
               <div className="card-text">
-                {/* Ajoute un snippet avec des couleurs */}
-                <SnippetForContact />
+                <img
+                  src={snipetContactPicture}
+                  alt="Si vous cherchez un développeur FullStack avec au moins 2 ans d'expérience, contactez-moi"
+                />
               </div>
             </div>
           </div>
