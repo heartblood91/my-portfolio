@@ -366,14 +366,20 @@ img {
   text-transform: uppercase;
   text-align: center;
 }
-#portfolio img {
+.carousel-indicators li {
+  background-color: var(--blue-dark);
+}
+#portfolio .img-carousel {
+  border-radius: 0 !important;
+}
+#portfolio .img-url {
   width: 100%;
   height: 100%;
   filter: grayscale(100%);
   -webkit-filter: grayscale(100%);
   transition: all 1s;
 }
-#portfolio img:hover {
+#portfolio .img-url:hover {
   filter: none;
   -webkit-filter: none;
   transform: scale(1.1);
