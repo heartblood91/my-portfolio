@@ -32,7 +32,7 @@ const About = (props) => {
               style={{ textIndent: "1em", fontSize: "1.1em" }}
             >
               <p>
-                Passionné par le développement informatique depuis mon adolescence.
+                Je suis passionné par le développement informatique depuis mon adolescence.
               </p>
               <p>
                 Autodidacte, j’ai amélioré mes compétences en apprenant de nouvelles technologies diverses et variées sur mon temps libre.
