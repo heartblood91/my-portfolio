@@ -8,12 +8,35 @@ import pictureOfWebWorldBucketList from "./content/images/WorldBucketList.webp";
 import pictureOfGeoConfinement from "./content/images/GeoConfinement.webp";
 import pictureOfCoraDriveAssistant from "./content/images/CoraDriveAssistant.webp";
 import pictureOfGithub from "./content/images/github.webp";
+
 import Carousel from "./components/carousel";
+
+import pictureOfAccountResponsible from "./content/images/new/account_responsible.webp"
+import pictureOfActionErrors from "./content/images/new/action-errors.webp"
+import pictureOfAction from "./content/images/new/action.webp"
+import pictureOfAddDocument from "./content/images/new/add_document.webp"
+import pictureOfDocumentations from "./content/images/new/documentations.webp"
+import pictureOfFilter from "./content/images/new/filter.webp"
+import pictureOfHypervisorActions from "./content/images/new/hypervisor-actions.webp"
+import pictureOfOneAction from "./content/images/new/one_action.webp"
+import pictureOfReferential from "./content/images/new/referential.webp"
+import pictureOfRoles from "./content/images/new/roles.webp"
+import pictureOfsummary from "./content/images/new/summary.webp"
+
 
 const Portfolio = (props) => {
   const array_of_items_for_examin_carousel = [
-    { img_src: pictureOfWebChat, img_alt: "1" },
-    { img_src: pictureOfWebMarkdown, img_alt: "2" },
+    { img_src: pictureOfRoles, img_alt: "Les rôles" },
+    { img_src: pictureOfAccountResponsible, img_alt: "Responsable de compte" },
+    { img_src: pictureOfActionErrors, img_alt: "Erreurs sur une action" },
+    { img_src: pictureOfAction, img_alt: "Les actions dans un plan d'action" },
+    { img_src: pictureOfHypervisorActions, img_alt: "Les actions dans un hyperviseur" },
+    { img_src: pictureOfOneAction, img_alt: "Une action" },
+    { img_src: pictureOfAddDocument, img_alt: "Ajouter un document" },
+    { img_src: pictureOfDocumentations, img_alt: "Liste des documents" },
+    { img_src: pictureOfFilter, img_alt: "Filtres" },
+    { img_src: pictureOfsummary, img_alt: "Le sommaire" },
+    { img_src: pictureOfReferential, img_alt: "La liste des réferentiels" },
   ]
   const array_of_items_for_mi_carousel = [
     { img_src: pictureOfWebChat, img_alt: "1" },
