@@ -8,20 +8,21 @@ import pictureOfWebWorldBucketList from "./content/images/WorldBucketList.webp";
 import pictureOfGeoConfinement from "./content/images/GeoConfinement.webp";
 import pictureOfCoraDriveAssistant from "./content/images/CoraDriveAssistant.webp";
 import pictureOfGithub from "./content/images/github.webp";
+import pictureOfMoneyManagement from './content/images/money-management.webp'
 
 import Carousel from "./components/carousel";
 
-import pictureOfAccountResponsible from "./content/images/new/account_responsible.webp"
-import pictureOfActionErrors from "./content/images/new/action-errors.webp"
-import pictureOfAction from "./content/images/new/action.webp"
-import pictureOfAddDocument from "./content/images/new/add_document.webp"
-import pictureOfDocumentations from "./content/images/new/documentations.webp"
-import pictureOfFilter from "./content/images/new/filter.webp"
-import pictureOfHypervisorActions from "./content/images/new/hypervisor-actions.webp"
-import pictureOfOneAction from "./content/images/new/one_action.webp"
-import pictureOfReferential from "./content/images/new/referential.webp"
-import pictureOfRoles from "./content/images/new/roles.webp"
-import pictureOfsummary from "./content/images/new/summary.webp"
+import pictureOfAccountResponsible from "./content/images/examin/account_responsible.webp"
+import pictureOfActionErrors from "./content/images/examin/action-errors.webp"
+import pictureOfAction from "./content/images/examin/action.webp"
+import pictureOfAddDocument from "./content/images/examin/add_document.webp"
+import pictureOfDocumentations from "./content/images/examin/documentations.webp"
+import pictureOfFilter from "./content/images/examin/filter.webp"
+import pictureOfHypervisorActions from "./content/images/examin/hypervisor-actions.webp"
+import pictureOfOneAction from "./content/images/examin/one_action.webp"
+import pictureOfReferential from "./content/images/examin/referential.webp"
+import pictureOfRoles from "./content/images/examin/roles.webp"
+import pictureOfsummary from "./content/images/examin/summary.webp"
 
 
 const Portfolio = (props) => {
@@ -39,10 +40,6 @@ const Portfolio = (props) => {
     { img_src: pictureOfReferential, img_alt: "La liste des réferentiels" },
   ]
   const array_of_items_for_mi_carousel = [
-    { img_src: pictureOfWebChat, img_alt: "1" },
-    { img_src: pictureOfWebMarkdown, img_alt: "2" },
-  ]
-  const array_of_items_for_account_carousel = [
     { img_src: pictureOfWebChat, img_alt: "1" },
     { img_src: pictureOfWebMarkdown, img_alt: "2" },
   ]
@@ -80,15 +77,12 @@ const Portfolio = (props) => {
         <h3 className="my-4 shadow-black">
           <u>Projets Personnels</u>
         </h3>
-        <h4 className="my-4 text-grey shadow-black">Money Management (Application web)</h4>
-        <p className="my-4 text-black font-italic text-center">
-          Pour des raisons de confidentialités, vous pourrez appercevoir seulement des captures d'écran. <br/>
-          Certaines informations seront floutées.
-        </p>
-        <div className="col-md-8 col-sm-12 mx-auto d-block">
-          <Carousel
-            array_of_items={array_of_items_for_account_carousel}
-            id='account_carousel'
+        <h4 className="my-4 text-grey shadow-black">Application web</h4>
+        <div className="row">
+          <PortFolioThumbs
+            link={"http://account.hidemyhome.ovh/transactions/C%C3%A9dric"}
+            pictures={pictureOfMoneyManagement}
+            altPictures={"App web: Money Management"}
           />
         </div>
         <h4 className="my-4 text-grey shadow-black">Application Android</h4>
