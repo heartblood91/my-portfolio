@@ -23,7 +23,18 @@ import pictureOfErrorAction from "./content/images/examin/error-action.webp"
 import pictureOfListOfRegulations from "./content/images/examin/list-of-regulations.webp"
 import pictureOfOneRegulation from "./content/images/examin/one-regulation.webp"
 
-
+import pictureOfLogin from "./content/images/MI/login.webp"
+import pictureOfModeNormal from "./content/images/MI/mode-normal.webp"
+import pictureOfDarkMode from "./content/images/MI/dark-mode.webp"
+import pictureOfMyProfil from "./content/images/MI/my-profil.webp"
+import pictureOfChooseMatch from "./content/images/MI/choose-match.webp"
+import pictureOfRapportCh from "./content/images/MI/rapport-ch.webp"
+import pictureOfRapportSir2 from "./content/images/MI/rapport-sir-2.webp"
+import pictureOfRapportSir from "./content/images/MI/rapport-sir.webp"
+import pictureOfRapportValidate from "./content/images/MI/rapport-validate.webp"
+import pictureOfMatchSignales from "./content/images/MI/match-signales.webp"
+import pictureOfRapportArretes from "./content/images/MI/rapport-arretes.webp"
+import pictureOfAdminUser from "./content/images/MI/admin-user.webp"
 
 
 const Portfolio = (props) => {
@@ -40,8 +51,18 @@ const Portfolio = (props) => {
     { img_src: pictureOfStats, img_alt: "Les statistiques" },
   ]
   const array_of_items_for_mi_carousel = [
-    { img_src: pictureOfWebChat, img_alt: "1" },
-    { img_src: pictureOfWebMarkdown, img_alt: "2" },
+    { img_src: pictureOfLogin, img: "Connexion" },
+    { img_src: pictureOfModeNormal, img: "Mode normal" },
+    { img_src: pictureOfDarkMode, img: "Mode sombre" },
+    { img_src: pictureOfMyProfil, img: "Mon profil" },
+    { img_src: pictureOfChooseMatch, img: "Sélectionner une rencontre" },
+    { img_src: pictureOfRapportCh, img: "Rapport CH" },
+    { img_src: pictureOfRapportSir, img: "Rapport SIR" },
+    { img_src: pictureOfRapportSir2, img: "Rapport SIR (suite)" },
+    { img_src: pictureOfRapportValidate, img: "Validation d'un rapport" },
+    { img_src: pictureOfMatchSignales, img: "Match signalé" },
+    { img_src: pictureOfRapportArretes, img: "Les arrêtés" },
+    { img_src: pictureOfAdminUser, img: "Administration des utilisateurs" },
   ]
   return (
     <section id="portfolio">
