@@ -12,32 +12,32 @@ import pictureOfMoneyManagement from './content/images/money-management.webp'
 
 import Carousel from "./components/carousel";
 
-import pictureOfAccountResponsible from "./content/images/examin/account_responsible.webp"
-import pictureOfActionErrors from "./content/images/examin/action-errors.webp"
-import pictureOfAction from "./content/images/examin/action.webp"
-import pictureOfAddDocument from "./content/images/examin/add_document.webp"
-import pictureOfDocumentations from "./content/images/examin/documentations.webp"
-import pictureOfFilter from "./content/images/examin/filter.webp"
-import pictureOfHypervisorActions from "./content/images/examin/hypervisor-actions.webp"
-import pictureOfOneAction from "./content/images/examin/one_action.webp"
-import pictureOfReferential from "./content/images/examin/referential.webp"
-import pictureOfRoles from "./content/images/examin/roles.webp"
-import pictureOfsummary from "./content/images/examin/summary.webp"
+import pictureOfActionPlan from "./content/images/examin/action-plan.webp"
+import pictureOfHypervisorAction from "./content/images/examin/hypervisor-action.webp"
+import pictureOfOneAction from "./content/images/examin/one-action.webp"
+import pictureOfStats from "./content/images/examin/stats.webp"
+import pictureOfAddFile from "./content/images/examin/add-file.webp"
+import pictureOfListOfFiles from "./content/images/examin/list-of-files.webp"
+import pictureOfOneEval from "./content/images/examin/one-eval.webp"
+import pictureOfErrorAction from "./content/images/examin/error-action.webp"
+import pictureOfListOfRegulations from "./content/images/examin/list-of-regulations.webp"
+import pictureOfOneRegulation from "./content/images/examin/one-regulation.webp"
+
+
 
 
 const Portfolio = (props) => {
   const array_of_items_for_examin_carousel = [
-    { img_src: pictureOfRoles, img_alt: "Les rôles" },
-    { img_src: pictureOfAccountResponsible, img_alt: "Responsable de compte" },
-    { img_src: pictureOfActionErrors, img_alt: "Erreurs sur une action" },
-    { img_src: pictureOfAction, img_alt: "Les actions dans un plan d'action" },
-    { img_src: pictureOfHypervisorActions, img_alt: "Les actions dans un hyperviseur" },
+    { img_src: pictureOfErrorAction, img_alt: "Erreur sur une action" },
+    { img_src: pictureOfHypervisorAction, img_alt: "Une action dans l'hyperviseur" },
+    { img_src: pictureOfActionPlan, img_alt: "Plan d'action" },
     { img_src: pictureOfOneAction, img_alt: "Une action" },
-    { img_src: pictureOfAddDocument, img_alt: "Ajouter un document" },
-    { img_src: pictureOfDocumentations, img_alt: "Liste des documents" },
-    { img_src: pictureOfFilter, img_alt: "Filtres" },
-    { img_src: pictureOfsummary, img_alt: "Le sommaire" },
-    { img_src: pictureOfReferential, img_alt: "La liste des réferentiels" },
+    { img_src: pictureOfListOfRegulations, img_alt: "Liste des réglementations" },
+    { img_src: pictureOfOneRegulation, img_alt: "Une réglementation" },
+    { img_src: pictureOfOneEval, img_alt: "Une évaluation" },
+    { img_src: pictureOfAddFile, img_alt: "Les fichiers" },
+    { img_src: pictureOfListOfFiles, img_alt: "Liste de documents" },
+    { img_src: pictureOfStats, img_alt: "Les statistiques" },
   ]
   const array_of_items_for_mi_carousel = [
     { img_src: pictureOfWebChat, img_alt: "1" },
