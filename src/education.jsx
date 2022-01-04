@@ -37,7 +37,7 @@ const Education = (props) => {
 
                       <p>
                         <u className="text-uppercase">Backend</u> <br />
-                        Express.js <br />
+                        NodeJS <br />
                         Firebase <br />
                         PHP
                       </p>

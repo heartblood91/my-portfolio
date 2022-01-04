@@ -94,6 +94,13 @@ const Skill = (props) => {
               }}
             />
             <SkillItem
+              value="70"
+              title="Méthodologie SCRUM"
+              tooltip = {{
+                is_enabled: false,
+              }}
+            />
+            <SkillItem
               value="40"
               title="Sensibilisation Cybersécurité"
               tooltip = {{

@@ -117,7 +117,7 @@ const Portfolio = (props) => {
           />
         </div>
 
-        <h4 className="my-4 text-grey shadow-black">Autres</h4>
+        <h4 className="my-4 text-grey shadow-black">Application NodeJS (seulement)</h4>
         <div className="row">
           <PortFolioThumbs
             link={"https://github.com/heartblood91/CoraDriveAssistant"}
