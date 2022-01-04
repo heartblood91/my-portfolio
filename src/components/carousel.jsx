@@ -19,7 +19,7 @@ const Carousel = ({ array_of_items, id }) => {
       active_classname = "active"
     }
     return (
-      <li data-target={`#${id}`} data-slide-to={index} className={active_classname}></li>
+      <li data-target={`#${id}`} data-slide-to={index} className={active_classname} key={index}></li>
     )
   }), [array_of_items, id])
   
