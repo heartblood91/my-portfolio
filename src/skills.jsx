@@ -12,58 +12,100 @@ const Skill = (props) => {
         <div className="row shadow-black">
           <div className="col-xl-4 col-md-6">
             <SkillItem
-              value="30"
-              forWhat="react"
-              title="React & Redux"
-              tooltip="React / Redux / React-Router"
+              value="50"
+              title="React"
+              tooltip = {{
+                is_enabled: true,
+                number_of_personnal_project: 2,
+                number_of_pro_project: 2,
+                id: "react",
+              }}
+            />
+            <SkillItem
+              value="60"
+              title="Typescript"
+              tooltip = {{
+                is_enabled: true,
+                number_of_personnal_project: 1,
+                number_of_pro_project: 1,
+                id: "typescript",
+              }}
+            />
+            <SkillItem
+              value="20"
+              title="Redux"
+              tooltip = {{
+                is_enabled: true,
+                number_of_personnal_project: 0,
+                number_of_pro_project: 1,
+                id: "redux",
+              }}
             />
             <SkillItem
               value="30"
-              forWhat="react-native"
               title="React-Native"
-              tooltip="React-Native / Expo / Redux / React-Navigation"
-            />
-            <SkillItem
-              value="25"
-              forWhat="frontend"
-              title="Frontend"
-              tooltip="HTML CSS Bootstrap Javascript PHP Jquery TypeScript"
+              tooltip = {{
+                is_enabled: true,
+                number_of_personnal_project: 1,
+                number_of_pro_project: 0,
+                id: "react-native",
+              }}
             />
           </div>
           <div className="col-xl-4 col-md-6">
             <SkillItem
-              value="30"
-              forWhat="backend"
-              title="Backend"
-              tooltip="Express.Js / Mongoose / Firebase"
-            />
-            <SkillItem
-              value="15"
-              forWhat="test"
-              title="Mocha"
-              tooltip="Test unitaire utilisé sur une API"
-            />
-
-            <SkillItem value="55" forWhat="git" title="Git" tooltip={null} />
-          </div>
-          <div className="col-xl-4 col-md-6">
-            <SkillItem
-              value="20"
-              forWhat="python"
-              title="Python"
-              tooltip="Web Scrapping, Data Analyse"
-            />
-            <SkillItem
-              value="20"
-              forWhat="devops"
-              title="Initiation DevOps"
-              tooltip={null}
+              value="60"
+              title="NodeJS"
+              tooltip = {{
+                is_enabled: true,
+                number_of_personnal_project: 4,
+                number_of_pro_project: 3,
+                id: "nodejs",
+              }}
             />
             <SkillItem
               value="40"
-              forWhat="cybersecurite"
+              title="Cypress / Jest / Mocha"
+              tooltip = {{
+                is_enabled: false,
+              }}
+            />
+            <SkillItem
+              value="65"
+              title="Git"
+              tooltip = {{
+                is_enabled: false,
+              }}
+            />
+          </div>
+          <div className="col-xl-4 col-md-6">
+            <SkillItem
+              value="20"
+              title="Python"
+              tooltip = {{
+                is_enabled: false,
+              }}
+            />
+            <SkillItem
+              value="35"
+              title="DevOps"
+              tooltip = {{
+                is_enabled: false,
+              }}
+            />
+            <SkillItem
+              value="70"
+              title="Méthodologie SCRUM"
+              tooltip = {{
+                is_enabled: false,
+              }}
+            />
+            <SkillItem
+              value="40"
               title="Sensibilisation Cybersécurité"
-              tooltip={null}
+              tooltip = {{
+                is_enabled: false,
+              }}
             />
           </div>
         </div>

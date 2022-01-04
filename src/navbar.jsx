@@ -23,7 +23,7 @@ const Header = (props) => {
           <NavbarItem href={"#experience"} title={"Expérience"} />
           <NavbarItem href={"#education"} title={"Education"} />
           <NavbarItem href={"#portfolio"} title={"Portfolio"} />
-          <NavbarItem href={"#contact"} title={"Contact"} />
+          {/* <NavbarItem href={"#contact"} title={"Contact"} /> */}
         </ul>
       </div>
     </nav>

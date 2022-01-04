@@ -9,7 +9,7 @@ const About = (props) => {
         <img
           src={pictureOfMe}
           alt="C'est moi Cédric"
-          className="img-fluid img-thumbnail shadow-box-center"
+          className="img-fluid img-thumbnail my-picture shadow-box-center"
         />
       </div>
       <div className="pb-4 text-center">
@@ -23,7 +23,7 @@ const About = (props) => {
 
         <div className="card col-8 col-lg-6 text-center mx-auto d-block p-0 shadow-box-center border-0">
           <div className="card-header text-white shadow-black">
-            <h3>Développeur Junior FullStack</h3>
+            <h3>Développeur FullStack (2 ans)</h3>
           </div>
           <div className="card-body">
             <h5 className="card-title">En quelques mots...</h5>
@@ -32,29 +32,17 @@ const About = (props) => {
               style={{ textIndent: "1em", fontSize: "1.1em" }}
             >
               <p>
-                Passionné par le développement informatique depuis mon
-                adolescence, je me suis lancé le défi de mettre à profit cette
-                passion au sein d’une division du Ministère de l’Intérieur. J’ai
-                pu me lancer dans l’élaboration et l’automatisation de diverses
-                tâches.
+                Je suis passionné par le développement informatique depuis mon adolescence.
               </p>
               <p>
-                Autodidacte, j’ai amélioré mes compétences en apprenant de
-                nouvelles technologies diverses et variées sur mon temps libre.
-                C’est le développement web qui m’a le plus intrigué et sur
-                lequel je me suis le plus focalisé. Après avoir vendu les vertus
-                de cette technologie, au détriment d’une suite bureautique, on
-                m’a autorisé à mettre à profit cet apprentissage en développant
-                une application web. En plus de mes autres activités
-                professionnelles, l’exercice du métier de développeur
-                Full-Stack, permettant un apprentissage continu, m’a fait
-                constater que cette profession est un boost de motivation. Il
-                est en parfaite adéquation avec ma personnalité, et me permet
-                d’utiliser mon plein potentiel. Ma voie étant trouvée et ma
-                motivation sans réserve, j'ai aujourd'hui pour objectif de
-                réussir pleinement cette reconversion professionnelle. Je
-                recherche l'entreprise qui pourra me permettre de relever ce
-                challenge!
+                Autodidacte, j’ai amélioré mes compétences en apprenant de nouvelles technologies diverses et variées sur mon temps libre.
+                C’est le développement web qui m’a le plus intrigué et sur lequel je me suis le plus focalisé.
+                L’exercice du métier de développeur Full-Stack, permettant un apprentissage continu, m’a fait constater que cette profession est un boost de motivation.
+                Il est en parfaite adéquation avec ma personnalité, et me permet d’utiliser mon plein potentiel.
+                Ma voie étant trouvée et ma motivation sans réserve, je me suis lancé le défi d’en faire une reconversion professionnelle.
+              </p>
+              <p>
+                Je remercie la société Examin de m’avoir fait confiance et de m’avoir suivi dans ce challenge!
               </p>
             </div>
             <a

@@ -1,25 +1,69 @@
 import React from "react";
 import PortFolioThumbs from "./components/portfolioThumb";
 
-//Pictures
-import pictureOfWebActrices from "./content/images/Actrices.webp";
-import pictureOfWebBurgerCode from "./content/images/burger-code.webp";
-import pictureOfWebBurgerCodeAdmin from "./content/images/burger-code-admin.webp";
 import pictureOfWebChat from "./content/images/Chat.webp";
-import pictureOfWebEasyQuizy from "./content/images/EasyQuizy.webp";
-import pictureOfWebFCC1 from "./content/images/FCC1.webp";
-import pictureOfWebFCC2 from "./content/images/FCC2.webp";
 import pictureOfWebMarkdown from "./content/images/Markdown.webp";
-import pictureOfWebMovies from "./content/images/Movies.webp";
-import pictureOfWebRecettes from "./content/images/Recettes.webp";
 import pictureOfWebSerpent from "./content/images/Serpent.webp";
-import pictureOfWebTravelAgency from "./content/images/TravelAgency.webp";
 import pictureOfWebWorldBucketList from "./content/images/WorldBucketList.webp";
 import pictureOfGeoConfinement from "./content/images/GeoConfinement.webp";
 import pictureOfCoraDriveAssistant from "./content/images/CoraDriveAssistant.webp";
 import pictureOfGithub from "./content/images/github.webp";
+import pictureOfMoneyManagement from './content/images/money-management.webp'
+
+import Carousel from "./components/carousel";
+
+import pictureOfActionPlan from "./content/images/examin/action-plan.webp"
+import pictureOfHypervisorAction from "./content/images/examin/hypervisor-action.webp"
+import pictureOfOneAction from "./content/images/examin/one-action.webp"
+import pictureOfStats from "./content/images/examin/stats.webp"
+import pictureOfAddFile from "./content/images/examin/add-file.webp"
+import pictureOfListOfFiles from "./content/images/examin/list-of-files.webp"
+import pictureOfOneEval from "./content/images/examin/one-eval.webp"
+import pictureOfErrorAction from "./content/images/examin/error-action.webp"
+import pictureOfListOfRegulations from "./content/images/examin/list-of-regulations.webp"
+import pictureOfOneRegulation from "./content/images/examin/one-regulation.webp"
+
+import pictureOfLogin from "./content/images/MI/login.webp"
+import pictureOfModeNormal from "./content/images/MI/mode-normal.webp"
+import pictureOfDarkMode from "./content/images/MI/dark-mode.webp"
+import pictureOfMyProfil from "./content/images/MI/my-profil.webp"
+import pictureOfChooseMatch from "./content/images/MI/choose-match.webp"
+import pictureOfRapportCh from "./content/images/MI/rapport-ch.webp"
+import pictureOfRapportSir2 from "./content/images/MI/rapport-sir-2.webp"
+import pictureOfRapportSir from "./content/images/MI/rapport-sir.webp"
+import pictureOfRapportValidate from "./content/images/MI/rapport-validate.webp"
+import pictureOfMatchSignales from "./content/images/MI/match-signales.webp"
+import pictureOfRapportArretes from "./content/images/MI/rapport-arretes.webp"
+import pictureOfAdminUser from "./content/images/MI/admin-user.webp"
+
 
 const Portfolio = (props) => {
+  const array_of_items_for_examin_carousel = [
+    { img_src: pictureOfErrorAction, img_alt: "Erreur sur une action" },
+    { img_src: pictureOfHypervisorAction, img_alt: "Une action dans l'hyperviseur" },
+    { img_src: pictureOfActionPlan, img_alt: "Plan d'action" },
+    { img_src: pictureOfOneAction, img_alt: "Une action" },
+    { img_src: pictureOfListOfRegulations, img_alt: "Liste des réglementations" },
+    { img_src: pictureOfOneRegulation, img_alt: "Une réglementation" },
+    { img_src: pictureOfOneEval, img_alt: "Une évaluation" },
+    { img_src: pictureOfAddFile, img_alt: "Les fichiers" },
+    { img_src: pictureOfListOfFiles, img_alt: "Liste de documents" },
+    { img_src: pictureOfStats, img_alt: "Les statistiques" },
+  ]
+  const array_of_items_for_mi_carousel = [
+    { img_src: pictureOfLogin, img: "Connexion" },
+    { img_src: pictureOfModeNormal, img: "Mode normal" },
+    { img_src: pictureOfDarkMode, img: "Mode sombre" },
+    { img_src: pictureOfMyProfil, img: "Mon profil" },
+    { img_src: pictureOfChooseMatch, img: "Sélectionner une rencontre" },
+    { img_src: pictureOfRapportCh, img: "Rapport CH" },
+    { img_src: pictureOfRapportSir, img: "Rapport SIR" },
+    { img_src: pictureOfRapportSir2, img: "Rapport SIR (suite)" },
+    { img_src: pictureOfRapportValidate, img: "Validation d'un rapport" },
+    { img_src: pictureOfMatchSignales, img: "Match signalé" },
+    { img_src: pictureOfRapportArretes, img: "Les arrêtés" },
+    { img_src: pictureOfAdminUser, img: "Administration des utilisateurs" },
+  ]
   return (
     <section id="portfolio">
       <div className="container">
@@ -28,8 +72,40 @@ const Portfolio = (props) => {
           <h2>Portfolio</h2>
         </div>
         <h3 className="my-4 shadow-black">
+          <u>Projets Professionnels</u>
+        </h3>
+        <p className="my-4 text-black font-italic text-center">
+          Pour des raisons de droit d'auteur, vous pourrez appercevoir seulement des captures d'écran. <br/>
+          Certaines informations seront floutées.
+        </p>
+        <h4 className="my-4 text-grey shadow-black">Examin</h4>
+
+        <div className="col-md-8 col-sm-12 mx-auto d-block">
+          <Carousel
+            array_of_items={array_of_items_for_examin_carousel}
+            id='examin_carousel'
+          />
+        </div>
+
+        <h4 className="my-4 text-grey shadow-black">Ministère de l'intérieur</h4>
+        <div className="col-md-8 col-sm-12 mx-auto d-block">
+          <Carousel
+            array_of_items={array_of_items_for_mi_carousel}
+            id='mi_carousel'
+          />
+        </div>
+
+        <h3 className="my-4 shadow-black">
           <u>Projets Personnels</u>
         </h3>
+        <h4 className="my-4 text-grey shadow-black">Application web</h4>
+        <div className="row">
+          <PortFolioThumbs
+            link={"http://account.hidemyhome.ovh/transactions/C%C3%A9dric"}
+            pictures={pictureOfMoneyManagement}
+            altPictures={"App web: Money Management"}
+          />
+        </div>
         <h4 className="my-4 text-grey shadow-black">Application Android</h4>
         <div className="row">
           <PortFolioThumbs
@@ -41,7 +117,7 @@ const Portfolio = (props) => {
           />
         </div>
 
-        <h4 className="my-4 text-grey shadow-black">Autres</h4>
+        <h4 className="my-4 text-grey shadow-black">Application NodeJS (seulement)</h4>
         <div className="row">
           <PortFolioThumbs
             link={"https://github.com/heartblood91/CoraDriveAssistant"}
@@ -53,72 +129,22 @@ const Portfolio = (props) => {
         <h3 className="my-4 shadow-black">
           <u>Formations</u>
         </h3>
-        <h4 className="my-4 text-grey shadow-black">FreeCodeCamp</h4>
+        <h4 className="my-4 text-grey shadow-black">Quelques exemples</h4>
         <div className="row">
-          <PortFolioThumbs
-            link={"http://tributepage.freecodecamp.hidemyhome.ovh"}
-            pictures={pictureOfWebFCC1}
-            altPictures={"Site Web: FreeCodeCamp Tribute Page"}
-          />
-          <PortFolioThumbs
-            link={"http://surveyform.freecodecamp.hidemyhome.ovh"}
-            pictures={pictureOfWebFCC2}
-            altPictures={"Site Web: FreeCodeCamp Survey Form"}
-          />
-        </div>
-        <h4 className="my-4 text-grey shadow-black">Udemy</h4>
-        <br />
-        <div className="row">
-          <PortFolioThumbs
-            link={"http://actrices.hidemyhome.ovh"}
-            pictures={pictureOfWebActrices}
-            altPictures={"Site Web: Actrices"}
-          />
-          <PortFolioThumbs
-            link={"http://burger-code.hidemyhome.ovh"}
-            pictures={pictureOfWebBurgerCode}
-            altPictures={"Site Web: BurgerCode"}
-          />
-          <PortFolioThumbs
-            link={"http://burger-code.hidemyhome.ovh/admin"}
-            pictures={pictureOfWebBurgerCodeAdmin}
-            altPictures={"Site Web: BurgerCode Admin"}
-          />
           <PortFolioThumbs
             link={"http://tchat.hidemyhome.ovh"}
             pictures={pictureOfWebChat}
             altPictures={"Site Web: Tchat"}
           />
           <PortFolioThumbs
-            link={"http://easy-quizy.hidemyhome.ovh"}
-            pictures={pictureOfWebEasyQuizy}
-            altPictures={"Site Web: EasyQuizy"}
-          />
-
-          <PortFolioThumbs
             link={"http://markdown.hidemyhome.ovh"}
             pictures={pictureOfWebMarkdown}
             altPictures={"Site Web: Markdown"}
           />
           <PortFolioThumbs
-            link={"http://movies.hidemyhome.ovh"}
-            pictures={pictureOfWebMovies}
-            altPictures={"Site Web: Movies"}
-          />
-          <PortFolioThumbs
-            link={"http://recettes.hidemyhome.ovh"}
-            pictures={pictureOfWebRecettes}
-            altPictures={"Site Web: Recettes"}
-          />
-          <PortFolioThumbs
             link={"http://snake.hidemyhome.ovh"}
             pictures={pictureOfWebSerpent}
             altPictures={"Site Web: Serpent"}
-          />
-          <PortFolioThumbs
-            link={"http://travel-agency.hidemyhome.ovh"}
-            pictures={pictureOfWebTravelAgency}
-            altPictures={"Site Web: TravelAgency"}
           />
           <PortFolioThumbs
             link={"http://world-bucket-list.hidemyhome.ovh"}
