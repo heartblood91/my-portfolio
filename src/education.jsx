@@ -1,7 +1,7 @@
-import React, { Fragment } from "react";
-import EducationItem from "./components/educationItem";
+import React from "react"
+import EducationItem from "./components/educationItem"
 
-const Education = (props) => {
+const Education = () => {
   return (
     <section id="education">
       <div className="container">
@@ -18,7 +18,7 @@ const Education = (props) => {
                   title={"Udemy"}
                   subTitle={"Formation en ligne"}
                   body={
-                    <Fragment>
+                    <React.Fragment>
                       <p>
                         <u className="text-uppercase">React & React-Native</u>{" "}
                         <br />
@@ -68,7 +68,7 @@ const Education = (props) => {
                           Voir toutes les formations suivies
                         </a>
                       </p>
-                    </Fragment>
+                    </React.Fragment>
                   }
                 />
               </div>
@@ -82,11 +82,11 @@ const Education = (props) => {
                   title={"Cyberini"}
                   subTitle={"Formation Online Sécurité Informatique"}
                   body={
-                    <Fragment>
+                    <React.Fragment>
                       <p>Protection vie privée </p>
                       <p>Comprendre les Arnarques sur internet</p>
                       <p>Antivirus</p>
-                    </Fragment>
+                    </React.Fragment>
                   }
                 />
               </div>
@@ -96,9 +96,9 @@ const Education = (props) => {
                   title={"Université Paris Descartes"}
                   subTitle={"Licence de Psychologie"}
                   body={
-                    <Fragment>
+                    <React.Fragment>
                       <p>Mention Assez-Bien</p>
-                    </Fragment>
+                    </React.Fragment>
                   }
                 />
               </div>
@@ -107,7 +107,7 @@ const Education = (props) => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Education;
+export default Education

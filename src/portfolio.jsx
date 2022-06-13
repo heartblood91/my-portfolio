@@ -1,16 +1,16 @@
-import React from "react";
-import PortFolioThumbs from "./components/portfolioThumb";
+import React from "react"
+import PortFolioThumbs from "./components/portfolioThumb"
 
-import pictureOfWebChat from "./content/images/Chat.webp";
-import pictureOfWebMarkdown from "./content/images/Markdown.webp";
-import pictureOfWebSerpent from "./content/images/Serpent.webp";
-import pictureOfWebWorldBucketList from "./content/images/WorldBucketList.webp";
-import pictureOfGeoConfinement from "./content/images/GeoConfinement.webp";
-import pictureOfCoraDriveAssistant from "./content/images/CoraDriveAssistant.webp";
-import pictureOfGithub from "./content/images/github.webp";
+import pictureOfWebChat from "./content/images/Chat.webp"
+import pictureOfWebMarkdown from "./content/images/Markdown.webp"
+import pictureOfWebSerpent from "./content/images/Serpent.webp"
+import pictureOfWebWorldBucketList from "./content/images/WorldBucketList.webp"
+import pictureOfGeoConfinement from "./content/images/GeoConfinement.webp"
+import pictureOfCoraDriveAssistant from "./content/images/CoraDriveAssistant.webp"
+import pictureOfGithub from "./content/images/github.webp"
 import pictureOfMoneyManagement from './content/images/money-management.webp'
 
-import Carousel from "./components/carousel";
+import Carousel from "./components/carousel"
 
 import pictureOfActionPlan from "./content/images/examin/action-plan.webp"
 import pictureOfHypervisorAction from "./content/images/examin/hypervisor-action.webp"
@@ -37,7 +37,7 @@ import pictureOfRapportArretes from "./content/images/MI/rapport-arretes.webp"
 import pictureOfAdminUser from "./content/images/MI/admin-user.webp"
 
 
-const Portfolio = (props) => {
+const Portfolio = () => {
   const array_of_items_for_examin_carousel = [
     { img_src: pictureOfErrorAction, img_alt: "Erreur sur une action" },
     { img_src: pictureOfHypervisorAction, img_alt: "Une action dans l'hyperviseur" },
@@ -167,7 +167,7 @@ const Portfolio = (props) => {
         </a>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Portfolio;
+export default Portfolio

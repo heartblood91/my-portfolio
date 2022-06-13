@@ -1,5 +1,5 @@
-import React from "react";
-import ReactTooltip from "react-tooltip";
+import React from "react"
+import ReactTooltip from "react-tooltip"
 
 const SkillItem = ({
   value,
@@ -28,8 +28,8 @@ const SkillItem = ({
         <Tooltip {...tooltip} />
       </div>
     </div>
-  );
-};
+  )
+}
 
 const Tooltip = ({ 
   is_enabled,
@@ -83,4 +83,4 @@ const putInPlural = ({number, word}) => {
   }
 }
 
-export default SkillItem;
+export default SkillItem

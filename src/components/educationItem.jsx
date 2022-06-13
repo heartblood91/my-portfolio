@@ -1,16 +1,21 @@
-import React from "react";
+import React from "react"
 
-const EducationItem = (props) => {
+const EducationItem = ({
+  year,
+  title,
+  subTitle,
+  body,
+}) => {
   return (
     <div className="education-block shadow-box-light">
-      <h5>{props.year}</h5>
+      <h5>{year}</h5>
       <span className="fas fa-graduation-cap"></span>
-      <h3>{props.title}</h3>
-      <h4>{props.subTitle}</h4>
+      <h3>{title}</h3>
+      <h4>{subTitle}</h4>
       <div className="red-divider"></div>
-      {props.body}
+      {body}
     </div>
-  );
-};
+  )
+}
 
-export default EducationItem;
+export default EducationItem

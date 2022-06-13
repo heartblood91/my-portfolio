@@ -1,13 +1,16 @@
-import React from "react";
+import React from "react"
 
-const NavbarItem = (props) => {
+const NavbarItem = ({
+  href,
+  title,
+}) => {
   return (
     <li className="nav-item">
-      <a className="nav-link" href={props.href}>
-        {props.title}
+      <a className="nav-link" href={href}>
+        {title}
       </a>
     </li>
-  );
-};
+  )
+}
 
-export default NavbarItem;
+export default NavbarItem
