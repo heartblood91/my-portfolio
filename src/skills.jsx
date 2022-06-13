@@ -1,7 +1,7 @@
-import React from "react";
-import SkillItem from "./components/skillItem";
+import React from "react"
+import SkillItem from "./components/skillItem"
 
-const Skill = (props) => {
+const Skill = () => {
   return (
     <section id="skills">
       <div className="blue-divider"></div>
@@ -26,13 +26,13 @@ const Skill = (props) => {
               title="Typescript"
               tooltip = {{
                 is_enabled: true,
-                number_of_personnal_project: 1,
+                number_of_personnal_project: 2,
                 number_of_pro_project: 1,
                 id: "typescript",
               }}
             />
             <SkillItem
-              value="20"
+              value="10"
               title="Redux"
               tooltip = {{
                 is_enabled: true,
@@ -64,6 +64,16 @@ const Skill = (props) => {
               }}
             />
             <SkillItem
+              value="50"
+              title="Deno"
+              tooltip={{
+                is_enabled: true,
+                number_of_personnal_project: 1,
+                number_of_pro_project: 0,
+                id: "deno",
+              }}
+            />
+            <SkillItem
               value="40"
               title="Cypress / Jest / Mocha"
               tooltip = {{
@@ -71,7 +81,7 @@ const Skill = (props) => {
               }}
             />
             <SkillItem
-              value="65"
+              value="75"
               title="Git"
               tooltip = {{
                 is_enabled: false,
@@ -111,7 +121,7 @@ const Skill = (props) => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Skill;
+export default Skill
