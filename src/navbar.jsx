@@ -1,7 +1,14 @@
-import React from "react";
-import NavbarItem from "./components/navbarItem";
+import React from "react"
+import NavbarItem from "./components/navbarItem"
 
-const Header = (props) => {
+const Header = () => {
+  const arrayOfHeaderElements = [
+    { href: "#about", title: "Moi" },
+    { href: "#skills", title: "Compétences" },
+    { href: "#experience", title: "Expérience" },
+    { href: "#education", title: "Education" },
+    { href: "#portfolio", title: "Portfolio" },
+  ]
   return (
     <nav className="navbar navbar-expand-md navbar-dark sticky-top shadow-box-navbar-blue">
       <button
@@ -18,16 +25,15 @@ const Header = (props) => {
         id="myNavbar"
       >
         <ul className="nav nav-pills navbar-nav">
-          <NavbarItem href={"#about"} title={"Moi"} />
-          <NavbarItem href={"#skills"} title={"Compétences"} />
-          <NavbarItem href={"#experience"} title={"Expérience"} />
-          <NavbarItem href={"#education"} title={"Education"} />
-          <NavbarItem href={"#portfolio"} title={"Portfolio"} />
-          {/* <NavbarItem href={"#contact"} title={"Contact"} /> */}
+          {arrayOfHeaderElements.map((header_element) => {
+            return (
+              <NavbarItem href={header_element.href} title={header_element.title} key={header_element.href} />
+            )
+          })}
         </ul>
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

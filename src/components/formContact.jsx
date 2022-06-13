@@ -1,20 +1,16 @@
-import React from "react";
+import React from "react"
 
-const FormContact = (props) => {
-  // Récupère les props
-  const {
-    name,
-    label,
-    placeholder,
-    invalidFeed,
-    isRequired,
-    stateError,
-    stateLockForm,
-    handleChange,
-  } = props;
-
+const FormContact = ({
+  name,
+  label,
+  placeholder,
+  invalidFeed,
+  isRequired,
+  stateError,
+  stateLockForm,
+  handleChange,
+}) => {
   // Classname commune entre le texte area et les autres
-
   let className = {
     id: name,
     type: name === "tel" || "email" ? name : "text",
@@ -28,7 +24,7 @@ const FormContact = (props) => {
         : "is-valid"),
     placeholder,
     onChange: handleChange,
-  };
+  }
 
   return (
     // En fonction du type (area vs input) on retourne un composant différent
@@ -43,7 +39,7 @@ const FormContact = (props) => {
       )}
       <div className="invalid-feedback">{invalidFeed}</div>
     </div>
-  );
-};
+  )
+}
 
-export default FormContact;
+export default FormContact

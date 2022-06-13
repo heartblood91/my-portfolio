@@ -1,6 +1,6 @@
-import React from "react";
+import React from "react"
 
-const Footer = (props) => {
+const Footer = () => {
   return (
     <footer className="text-center">
       <a href="#about">
@@ -18,7 +18,7 @@ const Footer = (props) => {
         )
       </h5>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

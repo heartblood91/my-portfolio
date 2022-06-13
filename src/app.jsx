@@ -1,28 +1,26 @@
-import React, { Fragment } from "react";
-import "./style.css";
+import React from "react"
+import "./style.css"
 
-import Navbar from "./navbar";
-import About from "./about";
-import Skill from "./skills";
-import Experience from "./experience";
-import Education from "./education";
-import Portfolio from "./portfolio";
-// import Contact from "./contact";
-import Footer from "./footer";
+import Navbar from "./navbar"
+import About from "./about"
+import Skill from "./skills"
+import Experience from "./experience"
+import Education from "./education"
+import Portfolio from "./portfolio"
+import Footer from "./footer"
 
-const App = (props) => {
+const App = () => {
   return (
-    <Fragment>
+    <React.Fragment>
       <Navbar />
       <About />
       <Skill />
       <Experience />
       <Education />
       <Portfolio />
-      {/* <Contact /> */}
       <Footer />
-    </Fragment>
-  );
-};
+    </React.Fragment>
+  )
+}
 
-export default App;
+export default App

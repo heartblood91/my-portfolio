@@ -1,6 +1,12 @@
-import React from "react";
+import React from "react"
 
-const ExperienceItem = (props) => {
+const ExperienceItem = ({
+  index,
+  enterprise,
+  job,
+  period,
+  arrayOfSentences,
+}) => {
   return (
     <li>
       <div className="timeline-badge">
@@ -9,22 +15,30 @@ const ExperienceItem = (props) => {
       <div
         className={
           "timeline-panel-container" +
-          (props.index % 2 === 0 ? "" : "-inverted")
+          (index % 2 === 0 ? "" : "-inverted")
         }
       >
         <div className="timeline-panel">
           <div className="timeline-heading text-center">
-            <h3>{props.enterprise}</h3>
-            <h4>{props.job}</h4>
+            <h3>{enterprise}</h3>
+            <h4 style={{whiteSpace: "pre-line"}}>{job}</h4>
             <p className="text-muted">
-              <small className="fas fa-clock"></small> {props.period}
+              <small className="fas fa-clock"></small> {period}
             </p>
           </div>
-          <div className="timeline-body">{props.body}</div>
+          <div className="timeline-body">
+            {arrayOfSentences.map((sentence, index) => {
+              return (
+                <p key={index}>
+                  {sentence}
+                </p>
+              )
+            })}
+          </div>
         </div>
       </div>
     </li>
-  );
-};
+  )
+}
 
-export default ExperienceItem;
+export default ExperienceItem

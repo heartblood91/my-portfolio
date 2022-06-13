@@ -1,8 +1,14 @@
-import React from "react";
-import pictureOfMe from "./content/images/me.webp";
-import Pdf from "./content/docs/CV.pdf";
+import React from "react"
+import pictureOfMe from "./content/images/me.webp"
+import Pdf from "./content/docs/CV.pdf"
 
-const About = (props) => {
+const About = () => {
+  const arrayOfSentences = React.useMemo(() => ([
+    "Je suis passionné par le développement informatique depuis mon adolescence.",
+    "Autodidacte, j’ai amélioré mes compétences en apprenant de nouvelles technologies diverses et variées sur mon temps libre. C’est le développement web qui m’a le plus intrigué et sur lequel je me suis le plus focalisé. L’exercice du métier de développeur Full-Stack, permettant un apprentissage continu, m’a fait constater que cette profession est un boost de motivation. Il est en parfaite adéquation avec ma personnalité, et me permet d’utiliser mon plein potentiel. Ma voie étant trouvée et ma motivation sans réserve, je me suis lancé le défi d’en faire une reconversion professionnelle.",
+    "Je remercie la société Examin de m’avoir fait confiance et de m’avoir suivi dans ce challenge!",
+  ]), [])
+
   return (
     <section id="about" className="container-fluid">
       <div className="col-8 col-lg-4 text-center mx-auto d-block">
@@ -13,13 +19,7 @@ const About = (props) => {
         />
       </div>
       <div className="pb-4 text-center">
-        <h1 className="text-white mt-4 text-uppercase shadow-black">
-          Bienvenue sur mon portfolio
-        </h1>
-        <div className="horizontaLine1"></div>
-        <div className="horizontaLine2"></div>
-        <div className="horizontaLine3"></div>
-        <div className="horizontaLine4"></div>
+        <TitleWithHorizontalLines/>
 
         <div className="card col-8 col-lg-6 text-center mx-auto d-block p-0 shadow-box-center border-0">
           <div className="card-header text-white shadow-black">
@@ -31,19 +31,13 @@ const About = (props) => {
               className="card-text text-justify mt-3 p-3"
               style={{ textIndent: "1em", fontSize: "1.1em" }}
             >
-              <p>
-                Je suis passionné par le développement informatique depuis mon adolescence.
-              </p>
-              <p>
-                Autodidacte, j’ai amélioré mes compétences en apprenant de nouvelles technologies diverses et variées sur mon temps libre.
-                C’est le développement web qui m’a le plus intrigué et sur lequel je me suis le plus focalisé.
-                L’exercice du métier de développeur Full-Stack, permettant un apprentissage continu, m’a fait constater que cette profession est un boost de motivation.
-                Il est en parfaite adéquation avec ma personnalité, et me permet d’utiliser mon plein potentiel.
-                Ma voie étant trouvée et ma motivation sans réserve, je me suis lancé le défi d’en faire une reconversion professionnelle.
-              </p>
-              <p>
-                Je remercie la société Examin de m’avoir fait confiance et de m’avoir suivi dans ce challenge!
-              </p>
+              {arrayOfSentences.map((sentence) => {
+                return (
+                  <p key={sentence}>
+                    {sentence}
+                  </p>
+                )
+              })}
             </div>
             <a
               href={Pdf}
@@ -57,7 +51,32 @@ const About = (props) => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default About;
+const TitleWithHorizontalLines = () => {
+  const arrayOfHorizontalLineKeys = React.useMemo(() => {
+    const numberOfLines = 4
+    const arr = []
+    for (let i = 0; i < numberOfLines; i++) {
+      arr.push(`horizontaLine${i + 1}`)
+    }
+
+    return arr
+  }, [])
+  
+  return (
+    <React.Fragment>
+      <h1 className="text-white mt-4 text-uppercase shadow-black">
+        Bienvenue sur mon portfolio
+      </h1>
+      {arrayOfHorizontalLineKeys.map((horizontaLine) => {
+        return (
+          <div className={horizontaLine} key={horizontaLine}/>
+        )
+      })}
+    </React.Fragment>
+  )
+}
+
+export default About

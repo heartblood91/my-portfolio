@@ -1,17 +1,21 @@
-import React from "react";
+import React from "react"
 
-const PortFolioThumbs = (props) => {
+const PortFolioThumbs = ({
+  link,
+  pictures,
+  altPictures,
+}) => {
   return (
     <div className="col-lg-3 col-md-4 col-sm-6 img-url">
-      <a href={props.link} target="_blank" rel="noopener noreferrer">
+      <a href={link} target="_blank" rel="noopener noreferrer">
         <img
           className="img-thumbnail"
-          src={props.pictures}
-          alt={props.altPictures}
+          src={pictures}
+          alt={altPictures}
         />
       </a>
     </div>
-  );
-};
+  )
+}
 
-export default PortFolioThumbs;
+export default PortFolioThumbs

@@ -1,9 +1,9 @@
-import React, { Component, Fragment } from "react";
-import axios from "axios";
-import FormContact from "./components/formContact";
-import snipetContactPicture from "./content/images/snippet-contact.webp";
+import React from "react"
+import axios from "axios"
+import FormContact from "./components/formContact"
+import snipetContactPicture from "./content/images/snippet-contact.webp"
 
-import { BASE_URL } from "./config";
+import { BASE_URL } from "./config"
 
 // Une partie du state qui fait l'objet d'un reset régulier
 const initSomeState = {
@@ -12,9 +12,9 @@ const initSomeState = {
   },
   backendMessage: "",
   inProgress: false,
-};
+}
 
-class Contact extends Component {
+class Contact extends React.Component {
   state = {
     form: {
       firstname: "",
@@ -35,15 +35,15 @@ class Contact extends Component {
     },
     errorToken: "",
     ...initSomeState,
-  };
+  }
 
   // Lors du montage du composant, on récupère le token nécessaire à l'envoie de mail
   componentDidMount = () => {
-    this.refreshToken(false);
-  };
+    this.refreshToken(false)
+  }
 
   formValidate = (event) => {
-    typeof event !== "undefined" && event.preventDefault();
+    typeof event !== "undefined" && event.preventDefault()
 
     // Je reset le state puis je continue la fonction
     this.setState(
@@ -52,32 +52,32 @@ class Contact extends Component {
       },
       () => {
         // Je fais une copie d'erreur
-        const error = Object.assign({}, this.state.error);
+        const error = Object.assign({}, this.state.error)
 
         // Je mets le compteur d'erreur à 0
-        error.iError = 0;
+        error.iError = 0
 
         // Je check chaque informations et je mets à jour la variable erreur
         Object.keys(this.state.form).map((key) => {
           //  Je check les erreurs. Par défaut, aucune erreur possible à tel.
           if (key !== "tel" && key !== "token1") {
-            error[key] = this.state.form[key] === "" ? true : false;
+            error[key] = this.state.form[key] === "" ? true : false
 
             // Token1 est inversé (pot de miel), il faut impérativement qu'il soit vide
           } else if (key === "token1") {
-            error.token1 = this.state.form.token1 === "" ? false : true;
+            error.token1 = this.state.form.token1 === "" ? false : true
           }
 
           // Je compte le nombre d'erreur
-          error[key] && (error.iError += 1);
+          error[key] && (error.iError += 1)
 
-          return error.iError;
-        });
+          return error.iError
+        })
 
         // Si aucune erreur alors, je fais une requête via axios à l'API pour demander l'envoie d'un email.
         if (error.iError === 0) {
           // Reset du message backend
-          this.feedbackBackend(null);
+          this.feedbackBackend(null)
           axios
             .post(`${BASE_URL}/sendAMail`, {
               // je transmet les informations dans le corps de la requête
@@ -92,27 +92,27 @@ class Contact extends Component {
             // si j'ai un retour, sans erreur, je préviens l'utilisateur que son message a été envoyé
             .then(() => {
               // Reset du message backend
-              this.feedbackBackend(true);
+              this.feedbackBackend(true)
             })
             // En cas d'erreur, je n'autorise pas la connexion
             .catch((err) => {
               // Pour éviter un crash, on vérifie l'existance de err.response.data
               let error,
-                stateError = "";
+                stateError = ""
 
               if (typeof err.response === "object") {
                 if (err.response.data !== "undefined") {
-                  error = err.response.data;
-                  stateError = err.response.status;
+                  error = err.response.data
+                  stateError = err.response.status
                 } else {
-                  error = stateError = err.response;
+                  error = stateError = err.response
                 }
               } else {
-                error = stateError = err;
+                error = stateError = err
               }
 
-              this.feedbackBackend(false, error, stateError);
-            });
+              this.feedbackBackend(false, error, stateError)
+            })
         }
 
         // J'actualise le state (erreur + je lock les informations validées en cas de changement)
@@ -125,33 +125,33 @@ class Contact extends Component {
             tel: true,
             message: true,
           },
-        });
+        })
       }
-    );
-  };
+    )
+  }
 
   handleChange = (event) => {
     // Recupère la valeur et le champs correspondant pour les stocker dans le state + je delock les informations + reset les info du précédent validate
-    const { value, name } = event.target;
+    const { value, name } = event.target
 
     // Etape 0: création du informations à MAJ
 
     // Si aucune transmission en cours alors on reset l'intégralité des infos
     let newState = !this.state.inProgress
       ? Object.assign({}, initSomeState)
-      : {};
+      : {}
 
     // Si un mail est en cours de transmission alors on delock seulement + transmission des new informations
     newState = {
       ...newState,
       form: { ...this.state.form, [name]: value },
       lockForm: { ...this.state.lockForm, [name]: false },
-    };
+    }
 
     this.setState({
       ...newState,
-    });
-  };
+    })
+  }
   refreshToken = (isFull) => {
     axios
       .get(`${BASE_URL}/createToken`, {})
@@ -164,16 +164,16 @@ class Contact extends Component {
           },
           () => {
             // Si le refresh a été demandé par l'utilisateur via le bouton, alors, après le setState, on transmet la requête
-            isFull && this.formValidate();
+            isFull && this.formValidate()
           }
-        );
+        )
       })
       // En cas d'erreur, je ne pourrais pas transmettre de mail, je set le state
       .catch(() => {
-        const errorToken = isFull ? "Serveur indisponible" : "Pas de token...";
-        this.setState({ errorToken });
-      });
-  };
+        const errorToken = isFull ? "Serveur indisponible" : "Pas de token..."
+        this.setState({ errorToken })
+      })
+  }
   feedbackMessage = () => {
     // Si j'ai des erreurs mais pas uniquement à cause du token2
     if (
@@ -186,12 +186,12 @@ class Contact extends Component {
       let iError =
         this.state.error.token1 === true
           ? this.state.error.iError - 1
-          : this.state.error.iError;
+          : this.state.error.iError
 
-      iError = this.state.error.token2 === true ? iError - 1 : iError;
+      iError = this.state.error.token2 === true ? iError - 1 : iError
 
       // si plusieurs erreurs alors => pluriel
-      const isPluriel = iError >= 2 ? "s" : "";
+      const isPluriel = iError >= 2 ? "s" : ""
 
       return (
         <p className="text-danger text-center animationFade">
@@ -201,16 +201,16 @@ class Contact extends Component {
           {isPluriel} en rouge.
           <br />
           Corrigez {isPluriel === "s" ? "ces" : "cette"} erreur{isPluriel} avant
-          de rappuyer sur le bouton! ;-)
+          de rappuyer sur le bouton! -)
         </p>
-      );
+      )
       // Si je n'ai aucune erreur
     } else if (this.state.error.iError === 0) {
       return (
         <p className="text-success text-center animationFade">
           Parfait! Je m'occupe d'envoyer votre message!{" "}
         </p>
-      );
+      )
 
       // Si mes 2 vérifs anti-bot ne sont pas bonnes
     } else if (
@@ -220,9 +220,9 @@ class Contact extends Component {
       return (
         <p className="text-danger text-center animationFade">
           Je pense que vous êtes un bot, je ne ferais pas parvenir votre mail,
-          sorry ;-)
+          sorry -)
         </p>
-      );
+      )
 
       // S'il n'y a pas de token2 de renseigné et s'il s'agit de ma seule erreur
     } else if (
@@ -233,7 +233,7 @@ class Contact extends Component {
         <div className="text-center">
           <p className="text-danger animationFade">
             {this.state.errorToken === "Pas de token..."
-              ? " Hmmmmm.... C'est embarrassant... Si vous n'êtes pas un bot, appuyez sur le bouton qui vient d'apparaître juste en dessous. ;-)"
+              ? " Hmmmmm.... C'est embarrassant... Si vous n'êtes pas un bot, appuyez sur le bouton qui vient d'apparaître juste en dessous. -)"
               : "Apparament le serveur n'est pas disponible... Sorry... :-( "}
           </p>
           <input
@@ -246,14 +246,14 @@ class Contact extends Component {
             }
           />
         </div>
-      );
+      )
     }
-  };
+  }
 
   feedbackBackend = (isSuccess, typeError, statusError) => {
     // Fixe les variables :
-    let backendMessage;
-    let valueProgressBar = 10;
+    let backendMessage
+    let valueProgressBar = 10
 
     // Etape 0: Création du message type
     // Fonction permettant de créer le message + la barre de progression
@@ -263,7 +263,7 @@ class Contact extends Component {
       valueProgressBar
     ) => {
       return (
-        <Fragment>
+        <React.Fragment>
           <p
             className={
               "text-center animationFade " +
@@ -292,9 +292,9 @@ class Contact extends Component {
               aria-valuemax="100"
             />
           </div>
-        </Fragment>
-      );
-    };
+        </React.Fragment>
+      )
+    }
 
     // Etape 1: Affiche la barre de progression + MAJ par interval régulier
     // Fonction permettant d'animer la barre de progression
@@ -302,7 +302,7 @@ class Contact extends Component {
       // Répète ce code à un interval régulier
       if (this.state.inProgress === true) {
         // Fais progresser la barre jusqu'à 70, step de 10
-        valueProgressBar = valueProgressBar < 80 ? valueProgressBar + 10 : 10;
+        valueProgressBar = valueProgressBar < 80 ? valueProgressBar + 10 : 10
 
         // Actualise le paragraphe dans le state
         this.setState({
@@ -311,12 +311,12 @@ class Contact extends Component {
             "En cours de transmission",
             valueProgressBar
           ),
-        });
+        })
 
         // Relance la fonction dans un interval de temps
-        setTimeout(startProgress, 1500);
+        setTimeout(startProgress, 1500)
       }
-    };
+    }
 
     // Etape 2: MAJ du message et de la barre en fonction de la requête
     // En cas d'échec pour la transmission du email
@@ -326,34 +326,34 @@ class Contact extends Component {
         // Soit il s'agit d'une adresse mail non valide (MAJ du state)
         // Soit du token qui n'est pas conforme
         // Soit une autre erreur client - serveur
-        let errorMessage = "";
+        let errorMessage = ""
         switch (typeError) {
           // S'il s'agit d'une erreur dans la boite mail, je mets à jour le state en conséquence
           case "adresse mail non valide":
-            errorMessage = "Votre adresse mail n'est pas valide... :-(";
+            errorMessage = "Votre adresse mail n'est pas valide... :-("
             this.setState({
               error: { ...this.state.error, email: true, iError: 1 },
-            });
+            })
 
-            break;
+            break
 
           // Dans ce cas, il s'agit soit
           case "unauthorized":
             errorMessage =
-              "Pour des raisons de sécurité, le serveur a rejeté votre demande... :-(";
-            break;
+              "Pour des raisons de sécurité, le serveur a rejeté votre demande... :-("
+            break
 
           default:
             if (statusError === 400) {
               errorMessage =
-                "Pour des raisons de sécurité, le serveur a rejeté votre demande... Mais la deuxième fois sera la bonne ;-)";
+                "Pour des raisons de sécurité, le serveur a rejeté votre demande... Mais la deuxième fois sera la bonne -)"
 
               this.setState({
                 form: { ...this.state.form, token2: typeError },
-              });
+              })
             } else {
               errorMessage =
-                "Oupss... Il y a un problème... Le message n'est pas parvenu...";
+                "Oupss... Il y a un problème... Le message n'est pas parvenu..."
             }
         }
 
@@ -361,11 +361,11 @@ class Contact extends Component {
         typeError === "adresse mail non valide" &&
           this.setState({
             error: { ...this.state.error, email: true, iError: 1 },
-          });
+          })
 
         // Je transmet le nouveau message :
-        backendMessage = creatorBackendMessage("danger", errorMessage, "100");
-      });
+        backendMessage = creatorBackendMessage("danger", errorMessage, "100")
+      })
 
       // En cas de succès
     } else if (isSuccess) {
@@ -374,18 +374,18 @@ class Contact extends Component {
         // Je transmet le message de succès
         backendMessage = creatorBackendMessage(
           "success",
-          "Le message a bien été transmis! ;-)",
+          "Le message a bien été transmis! -)",
           "100"
-        );
-      });
+        )
+      })
 
       // Si ni l'un ni l'autre, alors je mets en route la progression
     } else {
-      this.setState({ inProgress: true }, () => startProgress());
+      this.setState({ inProgress: true }, () => startProgress())
     }
 
-    this.setState({ backendMessage });
-  };
+    this.setState({ backendMessage })
+  }
 
   render() {
     return (
@@ -497,8 +497,8 @@ class Contact extends Component {
           </div>
         </div>
       </section>
-    );
+    )
   }
 }
 
-export default Contact;
+export default Contact
