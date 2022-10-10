@@ -23,7 +23,7 @@ const About = () => {
 
         <div className="card col-8 col-lg-6 text-center mx-auto d-block p-0 shadow-box-center border-0">
           <div className="card-header text-white shadow-black">
-            <h3>Développeur FullStack (2 ans)</h3>
+            <h3>Développeur FullStack Confirmé</h3>
           </div>
           <div className="card-body">
             <h5 className="card-title">En quelques mots...</h5>

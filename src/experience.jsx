@@ -35,7 +35,7 @@ const Experience = () => {
           <ExperienceItem
             index={0}
             enterprise="Examin"
-            job="Développeur FullStack Junior"
+            job="Développeur FullStack Confirmé"
             period="02/2021 - Aujourd'hui"
             arrayOfSentences={arrayOfSentencesForExamin}
           />
