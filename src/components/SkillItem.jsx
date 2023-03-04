@@ -1,5 +1,6 @@
-import React from "react"
-import ReactTooltip from "react-tooltip"
+import React from 'react'
+
+import ReactTooltip from 'react-tooltip'
 
 const SkillItem = ({
   value,
@@ -7,23 +8,23 @@ const SkillItem = ({
   tooltip,
 }) => {
   return (
-    <div className="progress shadow-box-light">
+    <div className='progress shadow-box-light'>
       <div
-        className="progress-bar"
-        role="progressbar"
+        className='progress-bar'
+        role='progressbar'
         aria-valuenow={value}
-        aria-valuemin="0"
-        aria-valuemax="100"
-        data-tip="tooltip"
-        data-place="top"
+        aria-valuemin='0'
+        aria-valuemax='100'
+        data-tip='tooltip'
+        data-place='top'
         data-for={tooltip.id}
-        data-background-color="#002f68da"
-        style={{ width: value + "%" }}
+        data-background-color='#002f68da'
+        style={{ width: value + '%' }}
       >
         {title.length > 20 ? (
           <h6> {title} </h6>
         ) : (
-          <h5>{title}</h5>
+          <h5> {title} </h5>
         )}
         <Tooltip {...tooltip} />
       </div>
@@ -31,7 +32,9 @@ const SkillItem = ({
   )
 }
 
-const Tooltip = ({ 
+export default React.memo(SkillItem)
+
+const Tooltip = React.memo(({
   is_enabled,
   number_of_personnal_project,
   number_of_pro_project,
@@ -56,7 +59,7 @@ const Tooltip = ({
     } else if (number_of_personnal_project) {
       return text_for_personnal_project
     } else {
-      return ""
+      return ''
     }
   }, [
     number_of_personnal_project,
@@ -73,14 +76,12 @@ const Tooltip = ({
   } else {
     return <React.Fragment />
   }
-}
+})
 
-const putInPlural = ({number, word}) => {
+const putInPlural = ({ number, word }) => {
   if (2 <= number) {
     return `${word}s`
   } else {
     return word
   }
 }
-
-export default SkillItem
